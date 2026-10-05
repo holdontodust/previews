@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Crown &amp; Bull | Dunedin, FL</title>
+<meta name="description" content="The full Crown &amp; Bull menu — breakfast, lunch, dinner and cocktails. Refined modern American dishes made from scratch at 319 Main Street, Dunedin, FL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: "Locke";
+    src: url("https://www.crownandbull.com/wp-content/uploads/et-fonts/locke-regular.otf") format("opentype");
+    font-display: swap;
+  }
+  :root{
+    --gold:#C59D5F;
+    --gold-dark:#7A5C22;
+    --ink:#121212;
+    --body-text:#333333;
+    --muted:#555555;
+    --line:#E3DCCB;
+    --box:#F8F5EF;
+    --footer-bg:#121212;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#ffffff;color:var(--body-text);
+    font-family:"Cabin",Helvetica,Arial,sans-serif;
+    font-size:17px;line-height:1.55;
+  }
+  h1,h2,.brand{font-family:"Locke",Georgia,"Times New Roman",serif;font-weight:400;color:var(--ink)}
+  a{color:var(--ink)}
+
+  /* ---------- Header (mirrors their Divi header: white, name left, nav right) ---------- */
+  header.site{
+    max-width:1080px;margin:0 auto;padding:1.4rem 1.25rem 1rem;
+    display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 2rem;
+    border-bottom:1px solid var(--line);
+  }
+  header.site .brand{font-size:2rem;letter-spacing:.02em;margin-right:auto}
+  header.site .brand a{text-decoration:none}
+  header.site .reach{font-size:1rem;text-align:right}
+  header.site .reach .addr{color:var(--muted)}
+  header.site .reach a.tel{font-weight:700;text-decoration:none}
+  header.site .reach a.tel:hover{color:var(--gold-dark);text-decoration:underline}
+  nav.main{
+    max-width:1080px;margin:0 auto;padding:.6rem 1.25rem;
+    display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;
+    border-bottom:1px solid var(--line);
+  }
+  nav.main a{
+    text-decoration:none;text-transform:uppercase;letter-spacing:.08em;
+    font-size:.92rem;font-weight:600;padding:.25rem 0;
+  }
+  nav.main a:hover{color:var(--gold-dark);text-decoration:underline}
+
+  /* ---------- Page title (their menu landing line) ---------- */
+  .pagetitle{max-width:820px;margin:0 auto;text-align:center;padding:2.6rem 1.25rem .5rem}
+  .pagetitle h1{font-size:2.9rem;line-height:1.1}
+  .pagetitle .tagline{color:var(--gold-dark);font-style:italic;font-size:1.15rem;margin-top:.4rem}
+  .pagetitle .intro{margin-top:1.1rem;color:var(--body-text)}
+  .pagetitle .hours-line{margin-top:.7rem;font-weight:600;color:var(--ink)}
+
+  /* ---------- Menu sections ---------- */
+  main{max-width:1080px;margin:0 auto;padding:0 1.25rem 2rem}
+  section{padding-top:2.8rem}
+  section .kicker{
+    text-align:center;color:var(--gold-dark);text-transform:uppercase;
+    letter-spacing:.22em;font-size:.8rem;font-weight:700;
+  }
+  section h2{
+    text-align:center;font-size:2.3rem;line-height:1.15;margin-top:.2rem;
+  }
+  section h2::after{
+    content:"";display:block;width:64px;height:2px;background:var(--gold);
+    margin:.7rem auto 0;
+  }
+  .sec-note{text-align:center;color:var(--muted);margin-top:.6rem}
+  h3.sub{
+    font-family:"Cabin",Helvetica,Arial,sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;font-size:1.05rem;color:var(--ink);
+    margin:2rem 0 1rem;padding-bottom:.35rem;border-bottom:1px solid var(--line);
+  }
+  .items{display:grid;grid-template-columns:1fr;gap:1.15rem 3rem}
+  @media(min-width:760px){.items{grid-template-columns:1fr 1fr}}
+  .mi-top{display:flex;align-items:baseline;gap:.55rem}
+  .mi-name{font-weight:700;color:var(--ink);font-size:1.05rem}
+  .mi-dots{flex:1;border-bottom:1px dotted #B9AC8C;transform:translateY(-3px)}
+  .mi-price{font-weight:700;color:var(--ink);white-space:nowrap}
+  .mi-desc{color:var(--muted);font-size:.95rem;margin-top:.1rem}
+  .listblock{
+    background:var(--box);border:1px solid var(--line);border-left:4px solid var(--gold);
+    padding:1rem 1.2rem;margin-top:1.3rem;
+  }
+  .listblock h4{
+    font-family:"Cabin",Helvetica,Arial,sans-serif;font-size:.98rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;color:var(--ink);margin-bottom:.4rem;
+  }
+  .listblock p{color:var(--body-text)}
+  .listblock strong{color:var(--ink)}
+
+  /* ---------- Footer (mirrors theirs: dark, hours + address + tel bar) ---------- */
+  footer.site{background:var(--footer-bg);color:#EDEDED;margin-top:3rem}
+  footer.site .cols{
+    max-width:1080px;margin:0 auto;padding:2.4rem 1.25rem 1.6rem;
+    display:flex;flex-wrap:wrap;gap:2rem 3.5rem;
+  }
+  footer.site h4{
+    color:#ffffff;font-family:"Cabin",Helvetica,Arial,sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;font-size:.85rem;margin-bottom:.55rem;
+  }
+  footer.site p{color:#CFCFCF}
+  footer.site a{color:#ffffff;font-weight:600}
+  footer.site .fineprint{
+    max-width:1080px;margin:0 auto;padding:0 1.25rem 1.4rem;
+    font-size:.8rem;color:#A9A9A9;line-height:1.5;
+  }
+  footer.site .bar{
+    border-top:1px solid #333333;text-align:center;
+    padding:1rem 1.25rem;font-size:.9rem;color:#CFCFCF;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Crown & Bull",
+  "servesCuisine": "Modern American",
+  "telephone": "727-736-5284",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "319 Main Street",
+    "addressLocality": "Dunedin",
+    "addressRegion": "FL",
+    "postalCode": "34698",
+    "addressCountry": "US"
+  },
+  "hasMenu": "https://www.crownandbull.com/menu/",
+  "openingHours": ["Mo-Fr 11:00-24:00", "Sa-Su 09:00-24:00"]
+}
+</script>
+</head>
+<body>
+
+<header class="site">
+  <div class="brand"><a href="https://www.crownandbull.com/">Crown &amp; Bull</a></div>
+  <div class="reach">
+    <div class="addr">319 Main Street, Dunedin, FL</div>
+    <a class="tel" href="tel:+17277365284">(727) 736-5284</a>
+  </div>
+</header>
+
+<nav class="main" aria-label="Menu sections">
+  <a href="#breakfast">Breakfast</a>
+  <a href="#lunch">Lunch</a>
+  <a href="#dinner">Dinner</a>
+  <a href="#cocktails">Cocktails</a>
+</nav>
+
+<div class="pagetitle">
+  <h1>Menu</h1>
+  <p class="tagline">Craft cocktail and culinary excellence</p>
+  <p class="intro">Our recipes are refined modern American dishes made from scratch with the best seasonal, responsibly sourced, and local ingredients &mdash; house made prime rib, corned beef, sauerkraut, and our famous dill pickles.</p>
+  <p class="hours-line">Breakfast served til&rsquo; 2pm &nbsp;&middot;&nbsp; Lunch served all day &nbsp;&middot;&nbsp; Happy Hour Mon&ndash;Fri 11am&ndash;7pm</p>
+</div>
+
+<main>
+
+  <section id="breakfast">
+    <p class="kicker">Served til&rsquo; 2pm</p>
+    <h2>Breakfast</h2>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Berry Pancakes</span><span class="mi-dots"></span><span class="mi-price">10</span></div><p class="mi-desc">2 buttermilk pancakes, blueberry compote, fresh berries, maple syrup, powdered sugar</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">BBQ Short Rib Bennie</span><span class="mi-dots"></span><span class="mi-price">24</span></div><p class="mi-desc">18 hour sous vide boneless short ribs, toasted English muffin, gochu-miso glaze, pickled things, poached eggs, chipotle hollandaise, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">O.G. French Toast</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Thick cut brioche, maple syrup, butter, powdered sugar</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Crab Bennie</span><span class="mi-dots"></span><span class="mi-price">26</span></div><p class="mi-desc">Butter poached lump blue crab, toasted English muffin, sauteed greens, poached eggs, chipotle hollandaise, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">PB&amp;J French Toast</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Thick cut brioche bread, peanut butter and jelly, caramelized banana, brown sugar granola, powdered sugar, maple syrup</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chorizo Bennie</span><span class="mi-dots"></span><span class="mi-price">24</span></div><p class="mi-desc">House chorizo patties, toasted English muffin, avocado salsa, saut&eacute;ed greens, poached eggs, chipotle hollandaise, cilantro, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Ricotta Toast</span><span class="mi-dots"></span><span class="mi-price">12</span></div><p class="mi-desc">Buttered sourdough, whipped ricotta, basil oil, Chicago giardiniera</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Tomato Bennie</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">Roasted tomato, toasted English muffin, balsamic reduction, basil, roasted red pepper, poached eggs, arugula, chipotle hollandaise, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Avocado Toast</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Grilled thick cut sourdough, avocado salsa, queso fresco, party pickles, radish, cucumber</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fast Ender Parfait</span><span class="mi-dots"></span><span class="mi-price">8</span></div><p class="mi-desc">Greek yogurt, blue berry compote, fresh berries, brown sugar granola</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">The War Pig</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Toasted everything bagel, cream cheese, tomato bacon jam, arugula, onion, tomato, bacon, fried egg, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Traditional Breakfast</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Two eggs, 3 slices of bacon, home fries, butter grilled sourdough, blue berry compote</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Breakfast Sando</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Toasted English muffin, two eggs, mortadella, house mayo, cheddar, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Breakfast Burrito</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Large tortilla, chorizo, scrambled egg, bacon, ancho braised black beans, cheddar, potato, poblano salsa, avocado salsa, pico de gallo, sour cream</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Breakfast Tacos</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">2 corn tortillas, house chorizo, fried eggs, crispy cheddar, queso fresco, pickled things, sriracha mayo, avocado salsa, lettuce, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Crab Omelette</span><span class="mi-dots"></span><span class="mi-price">22</span></div><p class="mi-desc">3 egg French omelette, Nueskes pork lardons, blue crab, arugula, creamed corn, gochu-miso butter, choice of side &amp; toast</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chorizo Omelette</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">3 egg omelette, Mexican chorizo, cheddar, pickled things, pico de gallo, choice of side &amp; toast</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Korean Beef Omelette</span><span class="mi-dots"></span><span class="mi-price">22</span></div><p class="mi-desc">3 egg omelette, Korean barbecue marinated beef, cheddar, sriracha mayo, scallion, choice of side &amp; toast</p></div>
+    </div>
+    <h3 class="sub">Sides &mdash; &Agrave; La Carte</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">One Egg</span><span class="mi-dots"></span><span class="mi-price">2</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Bacon or Chorizo</span><span class="mi-dots"></span><span class="mi-price">4</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Bagel with Cream Cheese</span><span class="mi-dots"></span><span class="mi-price">4</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Toast</span><span class="mi-dots"></span><span class="mi-price">2</span></div><p class="mi-desc">Sourdough, English muffin, biscuit, gluten free kaiser +2</p></div>
+    </div>
+    <h3 class="sub">Complimentary Sides &mdash; Up Charge</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Herbed Potatoes</span><span class="mi-dots"></span><span class="mi-price">3</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Bacon Cheese Grits</span><span class="mi-dots"></span><span class="mi-price">4</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Cheese Grits</span><span class="mi-dots"></span><span class="mi-price">3</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Cheesy Potatoes</span><span class="mi-dots"></span><span class="mi-price">4</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Sliced Tomatoes</span><span class="mi-dots"></span><span class="mi-price">3</span></div></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fruit Cup</span><span class="mi-dots"></span><span class="mi-price">6</span></div></div>
+    </div>
+  </section>
+
+  <section id="lunch">
+    <p class="kicker">Weekday Lunch</p>
+    <h2>Lunch</h2>
+    <p class="sec-note">Served all day</p>
+    <h3 class="sub">Sharables</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Twice Cooked Buffalo Wings</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Ancho braised then deep fried, tossed in Buffalo, served with carrots, celery, blue cheese or ranch</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Gochujang Wings</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Ancho braised then deep fried, tossed in gochu-miso glaze, topped with peanuts, sesame seeds, scallion</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Hummus</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Chickpea hummus, feta, kalamata salsa macha, vegetable crudite, za&rsquo;atar chips</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chicken Cutlet</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Crispy fried chicken breast, Calabrian mayo, petite salad of greens, onions and radish with champagne vinaigrette</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chimi Shrimp Skewers</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Mojo de ajo, chimichurri, lime, cilantro, parsley, mint</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chicka Boom Shrimp</span><span class="mi-dots"></span><span class="mi-price">24</span></div><p class="mi-desc">Crispy fried spiced shrimp, gochu-miso glaze, sriracha mayo, Asian pickle, Fresnos, cilantro, radish, scallion</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fried Brussel Sprouts</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Whipped ricotta, Neuskes pork lardon, lemon sumac honey, dill</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Falafel Plate</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">Four fried falafel, chickpea hummus, kalamata salsa macha, warm pita, cucumber herb salad, radish</p></div>
+    </div>
+    <h3 class="sub">Breakfast Classics</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">O.G. French Toast</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Thick cut brioche, maple syrup, butter, powdered sugar</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Traditional Breakfast</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Two eggs, 3 slices of bacon, home fries, butter grilled sourdough, blue berry compote</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fast Ender Parfait</span><span class="mi-dots"></span><span class="mi-price">8</span></div><p class="mi-desc">Greek yogurt, blue berry compote, fresh berries, brown sugar granola</p></div>
+    </div>
+    <h3 class="sub">Salads</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Honey Beet Salad</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Mixed greens, champagne vinaigrette, tomato, chilled honey roasted beets, cucumber, French feta, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Caesar</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Romaine, caesar, parmesan, garlic bread crumb</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Petite Wedge</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Iceberg, tomato bacon jam, pickled things, blue cheese, heirloom tomato, scallion</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Tarpon Greek</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Baby greens, hearts of romaine, creamy potato salad, chilled roasted beets, cucumber, tomato, champagne vinaigrette, feta, pepperoncini, kalamata olive</p></div>
+    </div>
+    <div class="listblock">
+    <h4>Complete Your Specialty Salad</h4>
+    <p><strong>7 oz. burger</strong> 8 &nbsp;&middot;&nbsp; <strong>falafel</strong> 8 &nbsp;&middot;&nbsp; <strong>grilled chicken</strong> 8 &nbsp;&middot;&nbsp; <strong>ahi tuna</strong> 12 &nbsp;&middot;&nbsp; <strong>Scottish salmon</strong> 12 &nbsp;&middot;&nbsp; <strong>scallops</strong> 18 &nbsp;&middot;&nbsp; <strong>7oz. filet</strong> 25 &nbsp;&middot;&nbsp; <strong>shrimp skewers</strong> 14</p>
+    <p style="margin-top:.4rem"><strong>Salad dressings:</strong> ranch, blue cheese, Caesar, chili ginger vinaigrette, honey mustard, Russian, champagne vinaigrette</p>
+      </div>
+    <h3 class="sub">Sandos</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Italian Beef</span><span class="mi-dots"></span><span class="mi-price">25</span></div><p class="mi-desc">Shaved hot Italian seasoned prime rib, toasted sesame hoagie roll, aged provolone, Calabrian mayo, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Steak Bahn Mi</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Shaved five spiced prime rib, crunchy baguette, whipped tallow, sriracha mayo, dressed thai slaw, cilantro, jalapeno, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">The Reuben</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Slow cooked corned beef, Swiss, Russian dressing, house kraut, thick cut marble rye, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fried Chicken Sandwich</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Sweet tea marinated chicken breast, pickle, gochu-miso glaze, sriracha mayo, toasted brioche bun, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">B.L.A.T.</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Buttered sourdough, house mayo, smashed avocado, bacon, local lettuce, sliced tomato, tomato bacon jam, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">The War Pig</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Toasted everything bagel, cream cheese, tomato bacon jam, arugula, onion, tomato, bacon, fried egg, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Breakfast Sando</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Toasted English muffin, two eggs, bacon, house mayo, cheddar, choice of side</p></div>
+    </div>
+    <h3 class="sub">Burgers</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Crown Burger</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">7oz patty, cheddar, fancy sauce, tomato bacon jam, house pickle, lettuce, toasted brioche, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Bries Knees</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">7 oz. patty, melted brie, garlic pur&eacute;e, balsamic reduction, arugula, tomato, toasted brioche, choice of side</p></div>
+    </div>
+    <h3 class="sub">Complimentary Sides</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fries</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Steak cut, salt or cajun</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Thai Slaw</span><span class="mi-dots"></span><span class="mi-price">5</span></div><p class="mi-desc">Napa cabbage, bell pepper, carrot, red onion, toasted peanuts and sesame seed, chili ginger vinaigrette</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Potato Salad</span><span class="mi-dots"></span><span class="mi-price">5</span></div><p class="mi-desc">Yukon golds, champagne aioli, pickled onions and peppers, parsley, dill, chives</p></div>
+    </div>
+    <h3 class="sub">&Agrave; La Carte Sides</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Cucumber Salad</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Crushed cucumber, dill, parsley, champagne vinaigrette, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fruit Cup</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Seasonal melon, fresh berries, mint, local honey</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Side House Salad</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Baby greens, cucumber, heirloom tomato, champagne vinaigrette, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Side Caesar</span><span class="mi-dots"></span><span class="mi-price">8</span></div><p class="mi-desc">Romaine, caesar, fresh parm, garlic bread crumb</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Truffle Fries</span><span class="mi-dots"></span><span class="mi-price">8</span></div><p class="mi-desc">Steak cut fries, parmesan, truffle oil</p></div>
+    </div>
+  </section>
+
+  <section id="dinner">
+    <p class="kicker">Evening</p>
+    <h2>Dinner</h2>
+    <h3 class="sub">Sharables &amp; Starters</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Hummus</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Chickpea hummus, feta, kalamata salsa macha, vegetable crudite, za&rsquo;atar chips</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chicken Cutlet</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Crispy fried chicken breast, Calabrian mayo, petite salad of greens, onions and radish with champagne vinaigrette</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chimi Shrimp Skewers</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Mojo de ajo, chimichurri, lime, cilantro, parsley, mint</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Crab Toast</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">Blue crab, buttered baguette, calabrian lemon cream, Nueskes pork lardons, arugula, corn</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Gochujang Wings</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Ancho braised then deep fried, tossed in miso gochujang and topped with peanuts, sesame seeds, scallion</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chicka Boom Shrimp</span><span class="mi-dots"></span><span class="mi-price">24</span></div><p class="mi-desc">Crispy fried spiced shrimp, gochu-miso glaze, sriracha mayo, Asian pickle, Fresnos, cilantro, radish, scallion</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Twice Cooked Buffalo Wings</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Ancho braised then deep fried, tossed in Buffalo. Served with carrots, celery, blue cheese or ranch</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Black Garlic Scallops</span><span class="mi-dots"></span><span class="mi-price">26</span></div><p class="mi-desc">Butter seared scallops with black garlic molasses, miso cream grits, salsa picante, cilantro, radish, fresnos</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fried Brussel Sprouts</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Whipped ricotta, Neuskes pork lardon, lemon sumac honey, dill</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Pistachio Clams</span><span class="mi-dots"></span><span class="mi-price">22</span></div><p class="mi-desc">Saut&eacute;ed Cedar Key clams, pistachio cream sauce, garlic oil, many herbs, pistachio dukkah, lime, toasted sourdough</p></div>
+    </div>
+    <h3 class="sub">Sandos</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Italian Beef</span><span class="mi-dots"></span><span class="mi-price">25</span></div><p class="mi-desc">Shaved hot Italian seasoned prime rib, toasted sesame hoagie roll, aged provolone, Calabrian mayo, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Steak Bahn Mi</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Shaved five spiced prime rib, crunchy baguette, whipped tallow, sriracha mayo, dressed thai slaw, cilantro, jalape&ntilde;o, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">The Reuben</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Slow cooked corned beef, Swiss, Russian dressing, house kraut, thick cut marble rye, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fried Chicken Sandwich</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Sweet tea marinated chicken breast, pickle, gochu-miso glaze, sriracha mayo, toasted brioche bun, choice of side</p></div>
+    </div>
+    <h3 class="sub">Burgers</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Crown Burger</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">7oz patty, cheddar, fancy sauce, tomato bacon jam, house pickle, lettuce, toasted brioche, choice of side</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Bries Knees</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">7 oz. patty, melted brie, garlic pur&eacute;e, balsamic reduction, arugula, tomato, toasted brioche, choice of side</p></div>
+    </div>
+    <h3 class="sub">Sea</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Lemon Herb Salmon</span><span class="mi-dots"></span><span class="mi-price">32</span></div><p class="mi-desc">Pan seared salmon, lemon herb aioli, aromatic rice, beets, herbs, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Miso Seabass</span><span class="mi-dots"></span><span class="mi-price">42</span></div><p class="mi-desc">Pan seared Chilean seabass, gochu-miso glaze, miso creamed grits, grilled asparagus, cilantro microgreens, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Blue Fin Tuna</span><span class="mi-dots"></span><span class="mi-price">34</span></div><p class="mi-desc">Sesame encrusted tuna seared blue, avocado rice, gochu-miso glaze, sriracha mayo, cilantro, scallion, fresnos, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Diver Scallops</span><span class="mi-dots"></span><span class="mi-price">36</span></div><p class="mi-desc">Diver scallops, salsa picante, fried lemon garlic baby potatoes, grilled asparagus, pickled fresnos, radish</p></div>
+    </div>
+    <h3 class="sub">Range</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Truffle Steak</span></div><p class="mi-desc">Parmesan herb truffle butter, garlic mash, saut&eacute;ed seasonal greens, parmesan crisp, chive &mdash; your choice of steak below</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chimi Steak</span></div><p class="mi-desc">Traditional chimichurri, fried lemon garlic baby potatoes, black garlic aioli, grilled asparagus &mdash; your choice of steak below</p></div>
+    </div>
+    <div class="listblock">
+    <h4>Your Choice of Steak</h4>
+    <p><strong>7oz filet</strong> 44 &nbsp;&middot;&nbsp; <strong>12oz filet</strong> 64 &nbsp;&middot;&nbsp; <strong>12oz ribeye</strong> 44 &nbsp;&middot;&nbsp; <strong>12 oz teres major</strong> 36</p>
+    <p style="margin-top:.4rem">Teres major: the butcher&rsquo;s secret, similar to filet, richer beef flavor and beautifully marbled.</p>
+      </div>
+    <h3 class="sub">Surf-N-Turf</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Boss Lady</span><span class="mi-dots"></span><span class="mi-price">52</span></div><p class="mi-desc">12oz ribeye, jumbo lump crab, Calabrian chili cream sauce, corn, Nueskes bacon, arugula, fried lemon garlic baby potatoes</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Chimi Steak &amp; Shrimp</span><span class="mi-dots"></span><span class="mi-price">54</span></div><p class="mi-desc">Marinated teres major, chimichurri, grilled shrimp skewers, fried lemon garlic baby potatoes, black garlic aioli, grilled asparagus</p></div>
+    </div>
+    <h3 class="sub">Land</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Mediterranean Chicken</span><span class="mi-dots"></span><span class="mi-price">28</span></div><p class="mi-desc">Grilled french cut breast, chick pea hummus, kalamata salsa macha, cucumber herb salad, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Gochujang BBQ Short Ribs</span><span class="mi-dots"></span><span class="mi-price">35</span></div><p class="mi-desc">18 hour sous vide boneless short ribs, gochu-miso pan sauce, miso creamed grits, grilled asparagus, pickled things, fresnos, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Pork Chop</span><span class="mi-dots"></span><span class="mi-price">40</span></div><p class="mi-desc">Pan seared bone in pork chop, apple cider glaze, miso creamed grits, saut&eacute;ed greens</p></div>
+    </div>
+    <h3 class="sub">Veg Forward</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Falafel Plate</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">Four fried falafel, chickpea hummus, kalamata salsa macha, warm pita, cucumber herb salad, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Tomato Curry</span><span class="mi-dots"></span><span class="mi-price">26</span></div><p class="mi-desc">Light spiced coconut curry, blistered cherry tomato, Asian pickles, aromatic rice, cilantro, mint, fried basil, lime</p></div>
+    </div>
+    <h3 class="sub">Pasta</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Short Rib Bolognese</span><span class="mi-dots"></span><span class="mi-price">25</span></div><p class="mi-desc">All day beef bolognese, local campanelle, fresh parm, basil</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Pistachio Campanelle</span><span class="mi-dots"></span><span class="mi-price">22</span></div><p class="mi-desc">Pistachio cream, local campanelle, basil, whipped ricotta, dukkah</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Gnocchi Pomodoro</span><span class="mi-dots"></span><span class="mi-price">20</span></div><p class="mi-desc">Local ricotta gnocchi, tomato cream, parmesan, basil oil</p></div>
+    </div>
+    <h3 class="sub">Salads</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Honey Beet Salad</span><span class="mi-dots"></span><span class="mi-price">18</span></div><p class="mi-desc">Baby greens, champagne vinaigrette, tomato, chilled roasted beets, cucumber, feta, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Caesar</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Romaine, caesar, parmesan, garlic bread crumb</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Petite Wedge</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Iceberg, tomato bacon jam, pickled things, blue cheese, heirloom tomato, scallion</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Tarpon Greek</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Baby greens, hearts of romaine, creamy potato salad, chilled roasted beets, cucumber, tomato, champagne vinaigrette, feta, pepperoncini, kalamata olive</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Side House Salad</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Baby greens, cucumber, heirloom tomato, champagne vinaigrette, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Side Caesar</span><span class="mi-dots"></span><span class="mi-price">8</span></div><p class="mi-desc">Romaine, caesar, fresh parm, garlic bread crumb</p></div>
+    </div>
+    <div class="listblock">
+    <h4>Complete Your Pasta or Salad</h4>
+    <p><strong>7 oz. burger</strong> 8 &nbsp;&middot;&nbsp; <strong>falafel</strong> 8 &nbsp;&middot;&nbsp; <strong>grilled chicken</strong> 8 &nbsp;&middot;&nbsp; <strong>blue fin tuna</strong> 18 &nbsp;&middot;&nbsp; <strong>Scottish salmon</strong> 12 &nbsp;&middot;&nbsp; <strong>scallops</strong> 18 &nbsp;&middot;&nbsp; <strong>7oz. filet</strong> 25 &nbsp;&middot;&nbsp; <strong>shrimp skewer</strong> 14</p>
+    <p style="margin-top:.4rem"><strong>Salad dressings:</strong> ranch, blue cheese, Caesar, chili ginger vinaigrette, honey mustard, Russian, champagne vinaigrette</p>
+      </div>
+    <h3 class="sub">Complimentary Sides</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fries</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Steak cut, salt or cajun</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Thai Slaw</span><span class="mi-dots"></span><span class="mi-price">5</span></div><p class="mi-desc">Napa cabbage, bell pepper, carrot, red onion, toasted peanuts and sesame seed, chili ginger vinaigrette</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Potato Salad</span><span class="mi-dots"></span><span class="mi-price">5</span></div><p class="mi-desc">Yukon golds, champagne aioli, pickled onions and peppers, parsley, dill, chives</p></div>
+    </div>
+    <h3 class="sub">&Agrave; La Carte Sides</h3>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Cucumber Salad</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Crushed cucumber, dill, parsley, champagne vinaigrette, radish</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Fruit Cup</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Seasonal melon, fresh berries, mint, local honey</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Saut&eacute;ed Seasonal Greens</span><span class="mi-dots"></span><span class="mi-price">6</span></div><p class="mi-desc">Rotating greens from a local farm, saut&eacute;ed with garlic and white wine</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Miso Creamed Grits</span><span class="mi-dots"></span><span class="mi-price">8</span></div><p class="mi-desc">Heirloom grits, shaved corn, cream, corn milk, miso</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Truffle Fries</span><span class="mi-dots"></span><span class="mi-price">8</span></div><p class="mi-desc">Steak cut fries, parmesan, truffle oil</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Truffle Mac N&rsquo; Cheese</span><span class="mi-dots"></span><span class="mi-price">12</span></div><p class="mi-desc">Ditalini, truffle b&eacute;chamel, fontina, sharp cheddar, parmesan, truffle paste, garlic bread crumb</p></div>
+    </div>
+  </section>
+
+  <section id="cocktails">
+    <p class="kicker">Cocktail List</p>
+    <h2>Cocktails</h2>
+    <p class="sec-note">Happy Hour Mon&ndash;Fri 11am &ndash; 7pm &mdash; $2 off everything</p>
+    <div class="items">
+      <div class="mi"><div class="mi-top"><span class="mi-name">Crown&rsquo;s Old Fashion</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Basil Hayden&rsquo;s Kentucky Straight Bourbon Whiskey, Angostura Orange Bitters, Simple Syrup, Filthy Black Cherries garnished with an orange peel &mdash; Smoked 18</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Bourbon Smash</span><span class="mi-dots"></span><span class="mi-price">17</span></div><p class="mi-desc">Angel&rsquo;s Envy Kentucky Straight Bourbon Whiskey, Grand Marnier, Fresh Sour, blackberries &amp; Strawberry Puree</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Cucumber Blue</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Empress 1908 Original Indigo Gin, basil, cucumber, fresh squeezed lime juice, simple syrup topped with soda water</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Dania&rsquo;s &ldquo;Skinny&rdquo; &rsquo;Rita</span><span class="mi-dots"></span><span class="mi-price">15</span></div><p class="mi-desc">Don Julio Blanco Tequila, Cointreau, Tres Agaves Organic Agave Nectar, fresh squeezed lime juice</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Monk&rsquo;s Muse</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Yellow Chartreuse, Cr&egrave;me de Noyaux, Heering Cherry Liqueur, egg white, fresh lemon juice dry shaken, then finished with Green Chartreuse</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Sassy Cecilia</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Ilegal Mezcal Joven, fresh lime juice, raspberries, simple syrup, Angostura Bitter &amp; Angostura Orange Bitters</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Dragonberry Mojito</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Bacardi Dragon Berry Rum, sliced strawberry, mint leaves, soda with a splash of Sprite</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Lightning Lemonade</span><span class="mi-dots"></span><span class="mi-price">12</span></div><p class="mi-desc">Deep Eddy Sweet Tea &amp; Lemon Vodka, lemonade &amp; sour mix</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Seducer</span><span class="mi-dots"></span><span class="mi-price">16</span></div><p class="mi-desc">Ilegal Mezcal Joven, Tres Agaves Organic Agave nectar, fresh lime juice, fresh cilantro with Tajin Chili Salt rim</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Pear &amp; Elderflower Collins</span><span class="mi-dots"></span><span class="mi-price">12</span></div><p class="mi-desc">Absolut Pear Vodka, St Germain Elderflower Liqueur, club soda &amp; sour mix</p></div>
+      <div class="mi"><div class="mi-top"><span class="mi-name">Cucumber Gimlet</span><span class="mi-dots"></span><span class="mi-price">14</span></div><p class="mi-desc">Hendrick&rsquo;s Gin, shaken, strained with muddled cucumber, club soda accompanied with fresh lime juice</p></div>
+    </div>
+    <div class="listblock">
+    <p>At Crown &amp; Bull, we believe in the finer things in life! We carefully have hand-selected all the drinks in this menu to pair well with our Craft-Kitchen menu. There is nothing better than a night out with friends enjoying great food and drinks &mdash; CHEERS!</p>
+      </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <h4>Visit Us</h4>
+      <p>319 Main Street<br>Dunedin, FL 34698</p>
+      <p style="margin-top:.4rem"><a href="tel:+17277365284">(727) 736-5284</a></p>
+    </div>
+    <div>
+      <h4>Hours</h4>
+      <p>Monday &ndash; Friday: 11:00am &ndash; Midnight<br>
+      Saturday &ndash; Sunday: 9:00am &ndash; Midnight</p>
+      <p style="margin-top:.4rem">Food served til&rsquo; 11pm Friday &amp; Saturday,<br>10pm Sunday &ndash; Thursday</p>
+    </div>
+    <div>
+      <h4>Find Us</h4>
+      <p><a href="https://www.facebook.com/crownandbullFL/">Facebook</a><br>
+      <a href="https://www.instagram.com/crownandbull">Instagram</a></p>
+    </div>
+  </div>
+  <p class="fineprint">Huey Two Bite Rule: Please notify your server within two bites if your meal isn&rsquo;t satisfactory. *20% Gratuity added to parties of 6 or more. Substitutions are not recommended but will be made with an appropriate upcharge. Consuming raw or undercooked meats, poultry, seafood, shellfish, eggs or unpasteurized milk may increase your risk of foodborne illness.</p>
+  <div class="bar">&copy; Crown &amp; Bull &#10072; 319 Main Street, Dunedin, FL 34698 &#10072; Tel: 727-736-5284</div>
+</footer>
+
+</body>
+</html>
