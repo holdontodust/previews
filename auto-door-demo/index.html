@@ -144,13 +144,14 @@
 
 <script>
 (function(){
-  var FRAMES = 5, imgs = [], loaded = 0;
+  var FRAMES = 60, imgs = [], loaded = 0;
   var canvas = document.getElementById('scrub'), ctx = canvas.getContext('2d');
   var hero = document.getElementById('heroScroll');
   var copy = document.getElementById('heroCopy'), shade = document.getElementById('heroShade'), hint = document.getElementById('scrollHint');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function drawCover(img, alpha){
+    if (!img || !img.complete || !img.naturalWidth) return;
     var cw = canvas.width, ch = canvas.height;
     var s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
     var w = img.naturalWidth * s, h = img.naturalHeight * s;
@@ -184,7 +185,7 @@
     (function(n){
       var im = new Image();
       im.onload = function(){ loaded++; if (n === 0 || loaded === FRAMES) onScroll(); };
-      im.src = 'frames/frame-' + n + '.webp';
+      im.src = 'frames2/f-' + String(n + 1).padStart(3, '0') + '.webp';
       imgs[n] = im;
     })(n);
   }
