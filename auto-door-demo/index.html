@@ -83,7 +83,7 @@
 <!-- HERO: scroll rolls the door up -->
 <div class="hero-scroll" id="heroScroll">
   <div class="hero-sticky">
-    <canvas id="scrub" width="906" height="1368"></canvas>
+    <canvas id="scrub" width="1290" height="2169"></canvas>
     <div class="hero-shade" id="heroShade"></div>
     <div class="hero-copy" id="heroCopy">
       <h1>Door stuck?<br><em>We open doors.</em></h1>
@@ -185,7 +185,7 @@
     (function(n){
       var im = new Image();
       im.onload = function(){ loaded++; if (n === 0 || loaded === FRAMES) onScroll(); };
-      im.src = 'frames60/k-' + String(n + 1).padStart(3, '0') + '.webp';
+      im.src = 'framesfull/k-' + String(n + 1).padStart(3, '0') + '.webp';
       imgs[n] = im;
     })(n);
   }
