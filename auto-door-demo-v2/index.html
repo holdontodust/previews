@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Door Store Tampa | Garage Door Repair & Installation, Pinellas Park FL</title>
+<meta name="description" content="Auto Door Store Tampa: garage door repair, spring replacement, opener repair and new door installation in Pinellas Park and the Tampa Bay area. Call (727) 295-5432.">
+<style>
+  :root{
+    --red:#C8102E; --ink:#141414; --paper:#ffffff; --smoke:#f4f4f2; --line:#e3e3de;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+  a{color:inherit}
+
+  /* ---------- top bar ---------- */
+  .topbar{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;justify-content:space-between;align-items:center;
+    padding:12px 18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .brand{font-weight:900;letter-spacing:.02em;font-size:18px}
+  .brand span{color:var(--red)}
+  .callbtn{background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:10px 16px;border-radius:999px;font-size:15px}
+  .callbtn:active{transform:scale(.98)}
+
+  /* ---------- layered scroll hero ----------
+     Three plates, one moving part:
+       reveal.webp = final frame (door open) underneath
+       door.webp   = the closed door, cut out of frame 1, slides up inside the doorway clip
+       fg.webp     = frame 1 with the doorway punched out, locked on top
+     The surroundings are a single still image, so they can never drift. */
+  .hero-scroll{height:340vh;position:relative}
+  .hero-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0c0c0c}
+  .frame{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:max(100vw, calc(100svh * 0.59488));aspect-ratio:1290 / 2169}
+  .frame img.plate{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .door-clip{position:absolute;left:12.636%;top:33.379%;width:74.729%;height:38.266%;overflow:hidden}
+  .door-clip img{position:absolute;left:-2.282%;top:-2.651%;width:104.564%;height:105.301%;
+    display:block;will-change:transform}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.62) 0%,rgba(0,0,0,.18) 42%,rgba(0,0,0,0) 65%);opacity:0;pointer-events:none;z-index:3}
+  .hero-copy{position:absolute;left:0;right:0;bottom:0;padding:0 22px 110px;color:#fff;opacity:0;transform:translateY(26px);pointer-events:none;z-index:4}
+  .hero-copy h1{font-size:clamp(38px,8.5vw,84px);line-height:.98;font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+  .hero-copy h1 em{font-style:normal;color:#ff4d67}
+  .hero-copy p{margin-top:14px;font-size:clamp(16px,2.6vw,21px);max-width:560px;font-weight:500}
+  .hero-cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+  .hero-cta a{text-decoration:none;font-weight:800;padding:14px 22px;border-radius:999px;font-size:16px}
+  .cta-call{background:var(--red);color:#fff}
+  .cta-quote{background:#fff;color:var(--ink)}
+  .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:5;color:#fff;
+    background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.35);padding:9px 18px;border-radius:999px;
+    font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+  .scroll-hint b{display:inline-block;animation:bob 1.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  /* ---------- sections ---------- */
+  section.body{padding:64px 22px;max-width:1080px;margin:0 auto}
+  .kicker{color:var(--red);font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:13px}
+  h2{font-size:clamp(28px,5vw,42px);font-weight:900;line-height:1.05;margin:10px 0 14px}
+  .lede{font-size:17px;max-width:640px;color:#333}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:30px}
+  .card{background:var(--smoke);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .card h3{font-size:19px;font-weight:850;margin-bottom:8px}
+  .card p{color:#3d3d3d;font-size:15px;line-height:1.45}
+  .strip{background:var(--ink);color:#fff;padding:44px 22px}
+  .strip-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+  .strip b{font-size:26px;font-weight:900;display:block}
+  .strip span{color:#cfcfcf;font-size:15px}
+
+  /* ---------- form ---------- */
+  form{display:grid;gap:12px;margin-top:26px;max-width:560px}
+  label{font-weight:700;font-size:14px}
+  input,select,textarea{width:100%;padding:13px 14px;border:1.5px solid #c9c9c4;border-radius:10px;font-size:16px;font-family:inherit;background:#fff}
+  textarea{min-height:96px;resize:vertical}
+  button.send{background:var(--red);color:#fff;border:0;font-weight:850;font-size:17px;padding:15px;border-radius:999px;cursor:pointer}
+  .thanks{display:none;background:#eef7ee;border:1px solid #bcd8bc;color:#14510f;padding:16px;border-radius:12px;font-weight:600;margin-top:20px;max-width:560px}
+
+  footer{background:var(--ink);color:#d8d8d8;padding:38px 22px;font-size:15px}
+  footer .fin{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:space-between}
+  footer b{color:#fff}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-scroll{height:100vh}
+    .scroll-hint{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">ADS <span>AUTO DOOR STORE</span></div>
+  <a class="callbtn" href="tel:+17272955432">Call (727) 295-5432</a>
+</header>
+
+<!-- HERO: scroll rolls the door up. Only the door layer moves. -->
+<div class="hero-scroll" id="heroScroll">
+  <div class="hero-sticky">
+    <div class="frame" id="frame">
+      <img class="plate" src="reveal.webp" alt="" draggable="false">
+      <div class="door-clip"><img id="doorImg" src="door.webp" alt="Auto Door Store garage door" draggable="false"></div>
+      <img class="plate" src="fg.webp" alt="" draggable="false">
+    </div>
+    <div class="hero-shade" id="heroShade"></div>
+    <div class="hero-copy" id="heroCopy">
+      <h1>Door stuck?<br><em>We open doors.</em></h1>
+      <p>Garage door repair, springs, openers and new doors, done right in Pinellas Park and across Tampa Bay.</p>
+      <div class="hero-cta">
+        <a class="cta-call" href="tel:+17272955432">Call (727) 295-5432</a>
+        <a class="cta-quote" href="#quote">Get a quote</a>
+      </div>
+    </div>
+    <div class="scroll-hint" id="scrollHint">Scroll <b>&#8595;</b></div>
+  </div>
+</div>
+
+<section class="body">
+  <div class="kicker">What we do</div>
+  <h2>Garage doors, handled.</h2>
+  <p class="lede">One call covers the whole door. Repairs, parts, openers and full replacements for homes across Pinellas Park, St. Petersburg and the Tampa Bay area.</p>
+  <div class="grid">
+    <div class="card"><h3>Garage Door Repair</h3><p>Off-track doors, worn rollers, cables and panels. We find the real problem and fix it the first time.</p></div>
+    <div class="card"><h3>Spring Replacement</h3><p>A broken spring leaves the door dead on the ground. We replace springs safely and balance the door after.</p></div>
+    <div class="card"><h3>Openers</h3><p>Opener repair and new installs, including smart openers you can run from your phone.</p></div>
+    <div class="card"><h3>New Doors</h3><p>New garage door sales and installation, measured, fitted and hauled away clean when we leave.</p></div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-in">
+    <div><b>Pinellas Park</b><span>Based at 12475 44th St N, serving the bay area</span></div>
+    <div><b>Mon to Sat</b><span>Open 9am to 5pm, call for service</span></div>
+    <div><b>(727) 295-5432</b><span>Talk to a real person at the shop</span></div>
+  </div>
+</div>
+
+<section class="body" id="quote">
+  <div class="kicker">Free quote</div>
+  <h2>Tell us what the door is doing.</h2>
+  <p class="lede">Send the basics and we will call you back with a straight answer on what it needs and what it costs.</p>
+  <form id="quoteForm">
+    <div><label for="f-name">Name</label><input id="f-name" type="text" autocomplete="name" required></div>
+    <div><label for="f-phone">Phone</label><input id="f-phone" type="tel" autocomplete="tel" required></div>
+    <div><label for="f-service">What do you need?</label>
+      <select id="f-service">
+        <option>Door repair</option><option>Broken spring</option><option>Opener problem</option>
+        <option>New door</option><option>Something else</option>
+      </select></div>
+    <div><label for="f-msg">Anything we should know?</label><textarea id="f-msg" placeholder="Door won't open, spring snapped, making a grinding noise..."></textarea></div>
+    <button class="send" type="submit">Send my request</button>
+  </form>
+  <div class="thanks" id="thanks">Got it. We will call you back shortly. If it is urgent, call us now at (727) 295-5432.</div>
+</section>
+
+<footer>
+  <div class="fin">
+    <div><b>Auto Door Store Tampa</b><br>12475 44th St N Unit A, Pinellas Park, FL</div>
+    <div><b>(727) 295-5432</b><br>Mon to Sat, 9am to 5pm</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var hero = document.getElementById('heroScroll');
+  var door = document.getElementById('doorImg');
+  var copy = document.getElementById('heroCopy'), shade = document.getElementById('heroShade'), hint = document.getElementById('scrollHint');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function draw(p){
+    // door finishes its travel at p = 0.8, leaving a beat on the open showroom
+    var dp = Math.max(0, Math.min(1, p / 0.8));
+    door.style.transform = 'translateY(' + (-100 * dp) + '%)';
+    var reveal = Math.max(0, Math.min(1, (p - 0.72) / 0.24));
+    copy.style.opacity = reveal; shade.style.opacity = reveal;
+    copy.style.transform = 'translateY(' + (26 * (1 - reveal)) + 'px)';
+    copy.style.pointerEvents = reveal > 0.6 ? 'auto' : 'none';
+    hint.style.opacity = Math.max(0, 1 - p * 6);
+  }
+  function progress(){
+    var r = hero.getBoundingClientRect();
+    var total = hero.offsetHeight - window.innerHeight;
+    return Math.max(0, Math.min(1, -r.top / total));
+  }
+  var ticking = false;
+  function onScroll(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){ draw(reduce ? 1 : progress()); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('thanks').style.display = 'block';
+    e.target.style.display = 'none';
+  });
+})();
+</script>
+</body>
+</html>
