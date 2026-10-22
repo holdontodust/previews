@@ -9,7 +9,7 @@
   * { margin:0; padding:0; box-sizing:border-box }
   body { background:#171719; color:#f5f5f7; font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.6; min-height:100vh }
   .wrap { max-width:760px; margin:0 auto; padding:28px 22px 70px }
-  .lifebanner { display:block; width:100%; background:#8057d3; color:#fff; font-size:17px; font-weight:700; text-align:center; border:none; border-radius:14px; padding:15px 18px; cursor:pointer; margin-bottom:18px }
+  .lifebanner { display:block; width:fit-content; background:#8057d3; color:#fff; font-size:14px; font-weight:700; text-align:center; border:none; border-radius:999px; padding:9px 20px; cursor:pointer; margin:0 auto 20px }
   .lifebanner:hover { background:#916be0 }
   .topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:26px }
   .brand { color:#a1a1a6; font-size:13px; letter-spacing:.14em; text-transform:uppercase }
@@ -45,11 +45,11 @@
 </head>
 <body>
 <div class="wrap">
-  <button class="lifebanner" id="lifebanner" data-go="s-brief">Click here to make the website come to life</button>
   <div class="topbar">
     <span class="brand">Clicklaunch</span>
     <a class="exit" href="https://getclicklaunch.com/">Just get me to the site &rarr;</a>
   </div>
+  <button class="lifebanner" id="lifebanner" data-go="s-brief">Click here to come to life</button>
 
   <!-- ENTRY -->
   <section class="screen on" id="s-entry">
