@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clicklaunch Mission — Get Found Online</title>
+<meta name="description" content="A 60-second interactive mission: see how Clicklaunch takes a local business from invisible on Google to launched.">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box }
+  body { background:#171719; color:#f5f5f7; font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.6; min-height:100vh }
+  .wrap { max-width:760px; margin:0 auto; padding:28px 22px 70px }
+  .lifebanner { display:block; width:100%; background:#8057d3; color:#fff; font-size:17px; font-weight:700; text-align:center; border:none; border-radius:14px; padding:15px 18px; cursor:pointer; margin-bottom:18px }
+  .lifebanner:hover { background:#916be0 }
+  .topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:26px }
+  .brand { color:#a1a1a6; font-size:13px; letter-spacing:.14em; text-transform:uppercase }
+  .exit { color:#a1a1a6; font-size:14px }
+  .screen { display:none }
+  .screen.on { display:block; animation:pop .35s ease }
+  @keyframes pop { from { opacity:0; transform:translateY(10px) } to { opacity:1; transform:none } }
+  .card { background:#1d1d1f; border:1px solid #333336; border-radius:18px; padding:34px 28px; text-align:center }
+  .eyebrow { color:#b79af0; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:12px }
+  h1 { font-size:38px; line-height:1.15; margin-bottom:14px }
+  h2 { font-size:29px; line-height:1.2; margin-bottom:12px }
+  .lede { color:#a1a1a6; font-size:18px; max-width:52ch; margin:0 auto 26px }
+  .bigbtn { display:inline-block; background:#8057d3; color:#fff; font-size:19px; font-weight:700; border:none; border-radius:999px; padding:16px 34px; cursor:pointer; text-decoration:none }
+  .bigbtn:hover { background:#916be0 }
+  .ghostbtn { display:inline-block; background:transparent; color:#f5f5f7; font-size:16px; font-weight:600; border:1px solid #4a4a4f; border-radius:999px; padding:13px 26px; cursor:pointer; text-decoration:none; margin-top:12px }
+  .ghostbtn:hover { border-color:#a1a1a6 }
+  .tracker { margin-bottom:22px }
+  .tracker .tlabel { display:flex; justify-content:space-between; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:#a1a1a6; margin-bottom:8px }
+  .bar { height:10px; background:#2c2c2e; border-radius:99px; overflow:hidden }
+  .bar > div { height:100%; background:#8057d3; border-radius:99px; transition:width .5s ease }
+  .body-text { color:#d7d7db; font-size:17px; text-align:left; max-width:56ch; margin:0 auto 22px }
+  .choices { display:grid; gap:12px; max-width:520px; margin:0 auto }
+  .choice { background:#242426; border:1px solid #3d3d42; color:#f5f5f7; border-radius:14px; padding:16px 18px; font-size:16.5px; font-weight:600; cursor:pointer; text-align:left }
+  .choice:hover { border-color:#8057d3 }
+  .reaction { display:none; background:#242426; border:1px solid #8057d3; border-radius:14px; padding:18px; max-width:520px; margin:0 auto 20px; color:#e8e2f7; font-size:16.5px }
+  .reaction.on { display:block }
+  .next { display:none; margin:0 auto }
+  .next.on { display:inline-block }
+  .complete-badge { font-size:15px; font-weight:700; letter-spacing:.18em; color:#7ee2a8; text-transform:uppercase; margin-bottom:10px }
+  .cta-row { display:grid; gap:12px; max-width:520px; margin:24px auto 0 }
+  .fineprint { color:#77777d; font-size:13.5px; margin-top:22px }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <button class="lifebanner" id="lifebanner" data-go="s-brief">Click here to make the website come to life</button>
+  <div class="topbar">
+    <span class="brand">Clicklaunch</span>
+    <a class="exit" href="https://getclicklaunch.com/">Just get me to the site &rarr;</a>
+  </div>
+
+  <!-- ENTRY -->
+  <section class="screen on" id="s-entry">
+    <div class="card">
+      <p class="eyebrow">Interactive</p>
+      <h1>Want our website to come to life?</h1>
+      <p class="lede">Most websites just sit there. Ours goes on a mission. Sixty seconds, four checkpoints, and you will know exactly how a business goes from invisible to launched.</p>
+      <button class="bigbtn" data-go="s-brief">Click here to start</button>
+      <p class="fineprint">Or skip the fun: <a href="https://getclicklaunch.com/" style="color:#a1a1a6">go straight to the site</a>.</p>
+    </div>
+  </section>
+
+  <!-- BRIEFING -->
+  <section class="screen" id="s-brief">
+    <div class="tracker"><div class="tlabel"><span>Mission briefing</span><span>0 of 4 checkpoints</span></div><div class="bar"><div style="width:4%"></div></div></div>
+    <div class="card">
+      <p class="eyebrow">Mission briefing</p>
+      <h2>Your mission: get found online.</h2>
+      <p class="lede">Right now, people near you are searching for exactly what you do, and hiring whoever shows up. This mission walks the four checkpoints between invisible and launched.</p>
+      <button class="bigbtn" data-go="s-c1">Accept mission</button><br>
+      <a class="ghostbtn" href="https://getclicklaunch.com/">Just get me to the site</a>
+    </div>
+  </section>
+
+  <!-- CHECKPOINT 1 -->
+  <section class="screen" id="s-c1">
+    <div class="tracker"><div class="tlabel"><span>Checkpoint 1 of 4 — The Problem</span><span>25%</span></div><div class="bar"><div style="width:25%"></div></div></div>
+    <div class="card">
+      <p class="eyebrow">Checkpoint 1 — The Problem</p>
+      <h2>Invisible is expensive.</h2>
+      <p class="body-text">When someone searches for your service, Google shows a short list. If your profile is unclaimed, your info is wrong somewhere, or your site never says plainly what you do, you are not on that list, and the job goes to a competitor who is. No ad spend fixes a broken foundation.</p>
+      <div class="choices" data-choices>
+        <button class="choice" data-react="That is the most common starting point we see, and it is fixable. Checkpoint 2 is the fix.">That is me, I do not show up</button>
+        <button class="choice" data-react="Good, then your foundation exists. The next checkpoints are about turning that presence into calls.">I show up, just not enough</button>
+        <button class="choice" data-react="Honest answer either way. The next checkpoints show what the businesses beating you have in place.">Not sure where I show up</button>
+      </div>
+      <p class="reaction" data-reaction></p>
+      <button class="bigbtn next" data-go="s-c2">Continue to Checkpoint 2</button>
+    </div>
+  </section>
+
+  <!-- CHECKPOINT 2 -->
+  <section class="screen" id="s-c2">
+    <div class="tracker"><div class="tlabel"><span>Checkpoint 2 of 4 — The Website</span><span>50%</span></div><div class="bar"><div style="width:50%"></div></div></div>
+    <div class="card">
+      <p class="eyebrow">Checkpoint 2 — The Website</p>
+      <h2>The one place online you actually own.</h2>
+      <p class="body-text">Social pages are rented land: the platform sets your reach and can change it any time. Your website is yours. It works around the clock, states your services and areas in plain words, and gives Google and your customers one clear place to land. We build it fast, and you own the site, the domain, and the content. No lock-in.</p>
+      <div class="choices" data-choices>
+        <button class="choice" data-react="Clean start, no baggage. A new build goes straight to Checkpoint 3 strength.">I have no website at all</button>
+        <button class="choice" data-react="Very common. The rebuild keeps what is worth keeping and replaces the rest, with no gap where customers cannot find you.">I have an old website</button>
+        <button class="choice" data-react="Facebook is fine for people who already know you. It does not catch the strangers searching Google tonight. That is the website's job.">Facebook page only</button>
+      </div>
+      <p class="reaction" data-reaction></p>
+      <button class="bigbtn next" data-go="s-c3">Continue to Checkpoint 3</button>
+    </div>
+  </section>
+
+  <!-- CHECKPOINT 3 -->
+  <section class="screen" id="s-c3">
+    <div class="tracker"><div class="tlabel"><span>Checkpoint 3 of 4 — Getting Found</span><span>75%</span></div><div class="bar"><div style="width:75%"></div></div></div>
+    <div class="card">
+      <p class="eyebrow">Checkpoint 3 — Getting Found</p>
+      <h2>Google, Maps, and now AI answers.</h2>
+      <p class="body-text">Getting found is a setup, not a spell: a complete Google Business Profile, reviews coming in, service pages that say what you do, and a site structured so search engines and AI tools like ChatGPT can read it and cite your business. Nobody honest can promise a ranking. What we promise is the setup done right, every piece in place.</p>
+      <div class="choices" data-choices>
+        <button class="choice" data-react="Then Google is your front door. Profile, reviews, and service pages are the work that decides who walks through it.">My customers Google it</button>
+        <button class="choice" data-react="That is exactly why the AI setup is built into every site we make, not sold as an extra.">They ask ChatGPT now</button>
+        <button class="choice" data-react="Referrals are gold, and they still Google you before they call. What they find in that moment decides whether the referral becomes a job.">Mostly word of mouth</button>
+      </div>
+      <p class="reaction" data-reaction></p>
+      <button class="bigbtn next" data-go="s-c4">Continue to Final Checkpoint</button>
+    </div>
+  </section>
+
+  <!-- CHECKPOINT 4 / COMPLETE -->
+  <section class="screen" id="s-c4">
+    <div class="tracker"><div class="tlabel"><span>Final checkpoint — Launch</span><span>100%</span></div><div class="bar"><div style="width:100%"></div></div></div>
+    <div class="card">
+      <p class="complete-badge">Mission complete</p>
+      <h2>Ready to launch yours?</h2>
+      <p class="lede">You just walked the whole route: the problem, the website, getting found, and the launch. Your time is the one thing you cannot buy more of. You run your business, we handle everything online.</p>
+      <div class="cta-row">
+        <a class="bigbtn" href="https://calendly.com/sebastiankoulias/30min">Book a 10-minute call</a>
+        <a class="ghostbtn" href="https://getclicklaunch.com/#order">Start your project brief</a>
+        <a class="ghostbtn" href="https://getclicklaunch.com/faq.html">Read the FAQ page</a>
+      </div>
+      <p class="fineprint">Mission replay: <a href="#" data-go="s-entry" style="color:#a1a1a6">start over</a>.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(function (s) { s.classList.toggle('on', s.id === id); });
+    document.getElementById('lifebanner').style.display = (id === 's-entry') ? 'block' : 'none';
+    window.scrollTo({ top: 0 });
+  }
+  document.querySelectorAll('[data-go]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); show(el.getAttribute('data-go')); });
+  });
+  document.querySelectorAll('[data-choices]').forEach(function (group) {
+    var card = group.closest('.card');
+    var reaction = card.querySelector('[data-reaction]');
+    var next = card.querySelector('.next');
+    group.querySelectorAll('.choice').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        reaction.textContent = btn.getAttribute('data-react');
+        reaction.classList.add('on');
+        if (next) next.classList.add('on');
+      });
+    });
+  });
+</script>
+</body>
+</html>
