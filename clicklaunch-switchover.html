@@ -420,12 +420,12 @@
       .switch-done{max-width:820px;margin:44px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:38px 30px;text-align:center}
       .switch-done h3{margin:0 0 10px;font-size:26px;letter-spacing:-.02em}
       .switch-done p{margin:0;color:var(--muted);font-size:16px;line-height:1.5}
-      @media (max-width:640px){.switch{padding:80px 0 70px}.switch-card{padding:22px}}
+      @media (max-width:640px){.switch{padding:80px 0 70px}.switch-card{padding:22px}.tabbar nav{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.tabbar nav::-webkit-scrollbar{display:none}}
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="tabbar"><a class="wordmark" href="#home">clicklaunch</a><nav aria-label="Page sections"><a href="#home" data-spy="home" class="active">Home</a><a href="#packages" data-spy="packages">Packages</a><a href="#addons" data-spy="addons">Add Ons</a><a href="#choose-package" data-spy="start">Start a Project</a></nav></header>
+  <header class="tabbar"><a class="wordmark" href="#home">clicklaunch</a><nav aria-label="Page sections"><a href="#home" data-spy="home" class="active">Home</a><a href="#packages" data-spy="packages">Packages</a><a href="#addons" data-spy="addons">Add Ons</a><a href="#choose-package" data-spy="start">Start a Project</a><a href="#switch-over" data-spy="switch">Switch Over</a></nav></header>
   <main id="main">
     <header class="hero center" id="home">
       <div class="wrap">
@@ -570,9 +570,9 @@
       addonToggles.forEach(function(toggle){toggle.addEventListener("click",function(){var wasOpen=toggle.getAttribute("aria-expanded")==="true";addonToggles.forEach(function(other){setAddon(other,false)});if(!wasOpen)setAddon(toggle,true)})});
       var faqToggle=document.getElementById("faq-toggle");
       if(faqToggle){faqToggle.addEventListener("click",function(){var open=faqToggle.getAttribute("aria-expanded")==="true";faqToggle.setAttribute("aria-expanded",open?"false":"true");var panel=document.getElementById("faq-panel");if(panel)panel.classList.toggle("open",!open)})}
-      var spyTargets={home:document.getElementById("home"),packages:document.getElementById("packages"),addons:document.getElementById("addons"),start:document.getElementById("order")};
-      var spyOrder=["home","packages","addons","start"];
-      function setActiveSpy(key){spyLinks.forEach(function(a){a.classList.toggle("active",a.dataset.spy===key)});var hash=key==="start"?"#choose-package":"#"+key;if(window.location.hash!==hash){try{history.replaceState(null,"",hash)}catch(e){}}}
+      var spyTargets={home:document.getElementById("home"),packages:document.getElementById("packages"),addons:document.getElementById("addons"),start:document.getElementById("order"),switch:document.getElementById("switch-over")};
+      var spyOrder=["home","packages","addons","start","switch"];
+      function setActiveSpy(key){spyLinks.forEach(function(a){a.classList.toggle("active",a.dataset.spy===key)});var hash=key==="start"?"#choose-package":key==="switch"?"#switch-over":"#"+key;if(window.location.hash!==hash){try{history.replaceState(null,"",hash)}catch(e){}}}
       function spyScroll(){var line=76,current="home";spyOrder.forEach(function(key){var el=spyTargets[key];if(!el)return;var limit=key==="start"?Math.max(line,Math.round(window.innerHeight*.4)):line;if(el.getBoundingClientRect().top<=limit)current=key});setActiveSpy(current)}
       var spyTicking=false;window.addEventListener("scroll",function(){if(!spyTicking){spyTicking=true;window.requestAnimationFrame(function(){spyScroll();spyTicking=false})}},{passive:true});
       spyScroll();
