@@ -33,6 +33,8 @@
   .answer .tick{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:15px;color:#fff;background:#fff}
   .answer[aria-pressed="true"]{border-color:var(--ink);background:var(--soft)}
   .answer[aria-pressed="true"] .tick{background:var(--purple);border-color:var(--purple)}
+  .answer.check .tick{border-radius:6px}
+  .answer.check{font-size:17px;min-height:58px;padding:13px 16px}
   .field{margin-top:14px;display:none}
   .field.show{display:block}
   .field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
@@ -112,15 +114,19 @@
   </section>
 
   <section class="step" data-step="3">
-    <h2 class="q">What are you interested in?</h2>
-    <p class="q-sub">Tap everything that fits.</p>
+    <h2 class="q">What do you want handled?</h2>
+    <p class="q-sub">Check everything you want. You can change your mind on the call.</p>
     <div class="answers" id="interestList">
-      <button type="button" class="answer" data-interest="A new website" aria-pressed="false">A new website<span class="tick">✓</span></button>
-      <button type="button" class="answer" data-interest="More phone calls" aria-pressed="false">More phone calls<span class="tick">✓</span></button>
-      <button type="button" class="answer" data-interest="Showing up on Google" aria-pressed="false">Showing up on Google<span class="tick">✓</span></button>
-      <button type="button" class="answer" data-interest="More reviews" aria-pressed="false">More reviews<span class="tick">✓</span></button>
-      <button type="button" class="answer" data-interest="Online booking" aria-pressed="false">Online booking<span class="tick">✓</span></button>
-      <button type="button" class="answer" data-interest="Not sure yet" aria-pressed="false">Not sure yet<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="A new website" aria-pressed="false">A new website<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Local SEO (get found on Google)" aria-pressed="false">Local SEO, get found on Google<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Google presence push" aria-pressed="false">Google presence push<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Instant lead texts" aria-pressed="false">Instant lead texts<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Missed call text back" aria-pressed="false">Missed call text back<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Custom review sender" aria-pressed="false">Custom review sender<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Online booking" aria-pressed="false">Online booking<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="AI search setup" aria-pressed="false">AI search setup<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Social media management" aria-pressed="false">Social media management<span class="tick">✓</span></button>
+      <button type="button" class="answer check" data-interest="Not sure, talk me through it" aria-pressed="false">Not sure, talk me through it<span class="tick">✓</span></button>
     </div>
     <div class="next-wrap">
       <button type="button" class="next" id="next3" disabled aria-label="Next question">↓</button>
