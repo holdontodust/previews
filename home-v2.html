@@ -41,10 +41,10 @@
   .field input{width:100%;min-height:58px;border:2px solid var(--line);border-radius:14px;padding:14px 16px;font-size:17px;color:var(--ink);background:#fff}
   .field input:focus{outline:3px solid var(--purple);outline-offset:1px;border-color:var(--purple)}
   .next-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:28px}
-  .next{width:64px;height:64px;border-radius:50%;border:none;background:var(--purple);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .15s ease,opacity .15s ease}
+  .next{min-width:190px;height:56px;padding:0 30px;border-radius:99px;border:none;background:var(--purple);color:#fff;font-size:17px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:background .15s ease,opacity .15s ease}
+  .next .arr{font-size:19px;line-height:1}
   .next:hover{background:var(--purple-dark)}
   .next:disabled{background:var(--line);cursor:not-allowed}
-  .next-label{font-size:13px;font-weight:600;color:var(--muted)}
   .back{display:block;margin:18px auto 0;background:none;border:none;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline}
   .cta{width:100%;min-height:64px;border:none;border-radius:16px;background:var(--purple);color:#fff;font-size:19px;font-weight:700;cursor:pointer;margin-top:10px}
   .cta:hover{background:var(--purple-dark)}
@@ -93,8 +93,7 @@
       <input id="siteUrl" type="text" inputmode="url" placeholder="yourwebsite.com" autocomplete="url">
     </div>
     <div class="next-wrap">
-      <button type="button" class="next" id="next1" disabled aria-label="Next question">↓</button>
-      <span class="next-label">Next</span>
+      <button type="button" class="next" id="next1" disabled>Next <span class="arr">↓</span></button>
     </div>
   </section>
 
@@ -107,8 +106,7 @@
       <button type="button" class="answer" data-q="seo" data-v="Not sure">Not sure yet<span class="tick">✓</span></button>
     </div>
     <div class="next-wrap">
-      <button type="button" class="next" id="next2" disabled aria-label="Next question">↓</button>
-      <span class="next-label">Next</span>
+      <button type="button" class="next" id="next2" disabled>Next <span class="arr">↓</span></button>
     </div>
     <button type="button" class="back" data-back="1">Back</button>
   </section>
@@ -129,8 +127,7 @@
       <button type="button" class="answer check" data-interest="Not sure, talk me through it" aria-pressed="false">Not sure, talk me through it<span class="tick">✓</span></button>
     </div>
     <div class="next-wrap">
-      <button type="button" class="next" id="next3" disabled aria-label="Next question">↓</button>
-      <span class="next-label">Next</span>
+      <button type="button" class="next" id="next3" disabled>Next <span class="arr">↓</span></button>
     </div>
     <button type="button" class="back" data-back="2">Back</button>
   </section>
