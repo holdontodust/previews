@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClickLaunch — A better website. Ready at launch speed.</title>
+<meta name="description" content="ClickLaunch builds websites and does SEO for local businesses. Answer 4 quick questions and book a call.">
+<style>
+  :root{--ink:#1d1d1f;--muted:#5f5f66;--line:#d9d9de;--purple:#6237c6;--purple-dark:#4a27a0;--bg:#ffffff;--soft:#f5f5f7}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .topbar{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+  .topbar-in{max-width:680px;margin:0 auto;padding:14px 20px 10px}
+  .brand{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .brand span{color:var(--purple)}
+  .progress-wrap{margin-top:10px}
+  .progress-meta{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .progress{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+  .progress i{display:block;height:100%;width:25%;background:var(--purple);border-radius:99px;transition:width .35s ease}
+  main{max-width:680px;margin:0 auto;padding:28px 20px 60px}
+  .hero{text-align:center;padding:18px 0 8px}
+  .hero h1{font-size:clamp(32px,7vw,46px);line-height:1.08;letter-spacing:-.02em;font-weight:800}
+  .hero p{margin-top:12px;font-size:17px;color:var(--muted);line-height:1.5}
+  .step{display:none}
+  .step.active{display:block;animation:in .3s ease}
+  @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .q{font-size:clamp(24px,5.5vw,30px);font-weight:800;letter-spacing:-.01em;text-align:center;margin:26px 0 6px}
+  .q-sub{text-align:center;color:var(--muted);font-size:15px;margin-bottom:22px}
+  .answers{display:grid;gap:12px}
+  .answer{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:64px;padding:16px 18px;border:2px solid var(--line);border-radius:16px;background:#fff;font-size:18px;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:border-color .15s ease,background .15s ease}
+  .answer:hover{border-color:var(--ink)}
+  .answer .tick{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:15px;color:#fff;background:#fff}
+  .answer[aria-pressed="true"]{border-color:var(--ink);background:var(--soft)}
+  .answer[aria-pressed="true"] .tick{background:var(--purple);border-color:var(--purple)}
+  .field{margin-top:14px;display:none}
+  .field.show{display:block}
+  .field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+  .field input{width:100%;min-height:58px;border:2px solid var(--line);border-radius:14px;padding:14px 16px;font-size:17px;color:var(--ink);background:#fff}
+  .field input:focus{outline:3px solid var(--purple);outline-offset:1px;border-color:var(--purple)}
+  .next-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:28px}
+  .next{width:64px;height:64px;border-radius:50%;border:none;background:var(--purple);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .15s ease,opacity .15s ease}
+  .next:hover{background:var(--purple-dark)}
+  .next:disabled{background:var(--line);cursor:not-allowed}
+  .next-label{font-size:13px;font-weight:600;color:var(--muted)}
+  .back{display:block;margin:18px auto 0;background:none;border:none;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline}
+  .cta{width:100%;min-height:64px;border:none;border-radius:16px;background:var(--purple);color:#fff;font-size:19px;font-weight:700;cursor:pointer;margin-top:10px}
+  .cta:hover{background:var(--purple-dark)}
+  .cta:disabled{background:var(--line);cursor:not-allowed}
+  .err{min-height:20px;text-align:center;color:#b00020;font-size:14px;font-weight:600;margin-top:12px}
+  .done{text-align:center;padding-top:30px}
+  .done h2{font-size:30px;font-weight:800;margin-bottom:10px}
+  .done p{color:var(--muted);font-size:16px;line-height:1.55;margin-bottom:24px}
+  footer{border-top:1px solid var(--line);padding:26px 20px 40px;text-align:center;color:var(--muted);font-size:13px}
+  footer a{color:var(--ink);font-weight:600}
+  @media (prefers-reduced-motion: reduce){.step.active{animation:none}.progress i{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">click<span>&amp;</span>launch</div>
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-meta"><span id="qLabel">Question 1 of 4</span><span>About 30 seconds</span></div>
+      <div class="progress"><i id="bar"></i></div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="hero">
+    <h1 id="headline">A better website. Ready at launch speed.</h1>
+    <p>Websites and SEO for local businesses. Answer 4 quick questions, then book your call.</p>
+  </div>
+
+  <section class="step active" data-step="1">
+    <h2 class="q">Already have a website?</h2>
+    <p class="q-sub">Tap one.</p>
+    <div class="answers">
+      <button type="button" class="answer" data-q="website" data-v="Yes">Yes, I have one<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-q="website" data-v="No">No, I need one<span class="tick">✓</span></button>
+    </div>
+    <div class="field" id="siteField">
+      <label for="siteUrl">Your website address</label>
+      <input id="siteUrl" type="text" inputmode="url" placeholder="yourwebsite.com" autocomplete="url">
+    </div>
+    <div class="next-wrap">
+      <button type="button" class="next" id="next1" disabled aria-label="Next question">↓</button>
+      <span class="next-label">Next</span>
+    </div>
+  </section>
+
+  <section class="step" data-step="2">
+    <h2 class="q">Interested in SEO?</h2>
+    <p class="q-sub">SEO is how customers find you on Google.</p>
+    <div class="answers">
+      <button type="button" class="answer" data-q="seo" data-v="Yes">Yes<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-q="seo" data-v="No">No<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-q="seo" data-v="Not sure">Not sure yet<span class="tick">✓</span></button>
+    </div>
+    <div class="next-wrap">
+      <button type="button" class="next" id="next2" disabled aria-label="Next question">↓</button>
+      <span class="next-label">Next</span>
+    </div>
+    <button type="button" class="back" data-back="1">Back</button>
+  </section>
+
+  <section class="step" data-step="3">
+    <h2 class="q">What are you interested in?</h2>
+    <p class="q-sub">Tap everything that fits.</p>
+    <div class="answers" id="interestList">
+      <button type="button" class="answer" data-interest="A new website" aria-pressed="false">A new website<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-interest="More phone calls" aria-pressed="false">More phone calls<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-interest="Showing up on Google" aria-pressed="false">Showing up on Google<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-interest="More reviews" aria-pressed="false">More reviews<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-interest="Online booking" aria-pressed="false">Online booking<span class="tick">✓</span></button>
+      <button type="button" class="answer" data-interest="Not sure yet" aria-pressed="false">Not sure yet<span class="tick">✓</span></button>
+    </div>
+    <div class="next-wrap">
+      <button type="button" class="next" id="next3" disabled aria-label="Next question">↓</button>
+      <span class="next-label">Next</span>
+    </div>
+    <button type="button" class="back" data-back="2">Back</button>
+  </section>
+
+  <section class="step" data-step="4">
+    <h2 class="q">Last one. Where do we send your quote?</h2>
+    <p class="q-sub">Your answers go straight to Sebastian. Then you pick a time for a quick call.</p>
+    <div class="field show">
+      <label for="custName">Your name</label>
+      <input id="custName" type="text" autocomplete="name" placeholder="Your name">
+    </div>
+    <div class="field show">
+      <label for="custPhone">Cell phone</label>
+      <input id="custPhone" type="tel" autocomplete="tel" placeholder="Best number to text">
+    </div>
+    <div class="field show">
+      <label for="custBiz">Business name</label>
+      <input id="custBiz" type="text" autocomplete="organization" placeholder="Your business">
+    </div>
+    <button type="button" class="cta" id="bookBtn">Book my call</button>
+    <p class="err" id="errMsg"></p>
+    <button type="button" class="back" data-back="3">Back</button>
+  </section>
+
+  <section class="step" data-step="5">
+    <div class="done">
+      <h2>You're in.</h2>
+      <p>Your answers are on their way to Sebastian. If the scheduling page didn't open, tap below and pick your time.</p>
+      <button type="button" class="cta" id="calBtn">Pick my time</button>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>ClickLaunch · Websites and SEO for local businesses · <a href="/how-it-works/">How it works</a> · <a href="/faq.html">FAQ</a> · <a href="/local-seo/">Local SEO</a></p>
+</footer>
+<script>
+(function(){
+  var answers={website:"",siteUrl:"",seo:"",interests:[]};
+  var steps=[].slice.call(document.querySelectorAll(".step"));
+  var bar=document.getElementById("bar"),qLabel=document.getElementById("qLabel"),progressWrap=document.getElementById("progressWrap");
+  function show(n){
+    steps.forEach(function(s){s.classList.toggle("active",+s.dataset.step===n)});
+    if(n<=4){progressWrap.style.display="";bar.style.width=(n*25)+"%";qLabel.textContent="Question "+n+" of 4"}
+    else{progressWrap.style.display="none"}
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function pick(group,val,btn){
+    answers[group]=val;
+    [].slice.call(document.querySelectorAll('[data-q="'+group+'"]')).forEach(function(b){b.setAttribute("aria-pressed",b===btn?"true":"false")});
+    if(group==="website"){
+      document.getElementById("siteField").classList.toggle("show",val==="Yes");
+      document.getElementById("next1").disabled = val==="No";
+      if(val==="Yes"){document.getElementById("next1").disabled = !document.getElementById("siteUrl").value.trim()}
+    }
+    if(group==="seo"){document.getElementById("next2").disabled=false}
+  }
+  [].slice.call(document.querySelectorAll("[data-q]")).forEach(function(b){
+    b.addEventListener("click",function(){pick(b.dataset.q,b.dataset.v,b)});
+  });
+  document.getElementById("siteUrl").addEventListener("input",function(){
+    answers.siteUrl=this.value.trim();
+    if(answers.website==="Yes"){document.getElementById("next1").disabled=!this.value.trim()}
+  });
+  [].slice.call(document.querySelectorAll("[data-interest]")).forEach(function(b){
+    b.addEventListener("click",function(){
+      var on=b.getAttribute("aria-pressed")==="true";b.setAttribute("aria-pressed",on?"false":"true");
+      var v=b.dataset.interest,i=answers.interests.indexOf(v);
+      if(on&&i>-1)answers.interests.splice(i,1);if(!on&&i<0)answers.interests.push(v);
+      document.getElementById("next3").disabled=answers.interests.length===0;
+    });
+  });
+  document.getElementById("next1").addEventListener("click",function(){show(2)});
+  document.getElementById("next2").addEventListener("click",function(){show(3)});
+  document.getElementById("next3").addEventListener("click",function(){show(4)});
+  [].slice.call(document.querySelectorAll("[data-back]")).forEach(function(b){
+    b.addEventListener("click",function(){show(+b.dataset.back)});
+  });
+  var CAL="https://calendly.com/sebastiankoulias/30min";
+  document.getElementById("calBtn").addEventListener("click",function(){window.open(CAL,"_blank","noopener")});
+  document.getElementById("bookBtn").addEventListener("click",function(){
+    var btn=this,err=document.getElementById("errMsg");
+    var name=document.getElementById("custName").value.trim();
+    var phone=document.getElementById("custPhone").value.trim();
+    var biz=document.getElementById("custBiz").value.trim();
+    if(!name||!phone){err.textContent="Add your name and cell phone so Sebastian can reach you.";return}
+    err.textContent="";btn.disabled=true;btn.textContent="Sending...";
+    var data={"_subject":"New Click Launch answers"+(biz?" — "+biz:""),"_template":"table","Name":name,"Cell phone":phone,"Business name":biz||"Not provided","Already has a website":answers.website,"Website address":answers.siteUrl||"Not provided","Interested in SEO":answers.seo,"Interests":answers.interests.join(", ")};
+    fetch("https://formsubmit.co/ajax/sebastiankoulias@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)})
+    .then(function(r){if(!r.ok)throw new Error("send failed");return r.json()})
+    .then(function(){show(5);window.open(CAL,"_blank","noopener")})
+    .catch(function(){btn.disabled=false;btn.textContent="Book my call";err.textContent="That didn't go through. Tap again, or call us and we'll take it by phone."});
+  });
+})();
+</script>
+</body>
+</html>
