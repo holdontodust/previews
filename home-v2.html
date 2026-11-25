@@ -48,6 +48,13 @@
   .cta:hover{background:var(--purple-dark)}
   .cta:disabled{background:var(--line);cursor:not-allowed}
   .err{min-height:20px;text-align:center;color:#b00020;font-size:14px;font-weight:600;margin-top:12px}
+  .step[data-step="4"] .q{font-size:clamp(26px,6vw,34px);font-weight:700;letter-spacing:-.02em;margin-top:34px}
+  .step[data-step="4"] .q-sub{font-size:16px;margin-bottom:30px}
+  .step[data-step="4"] .field{margin-top:0;margin-bottom:14px}
+  .step[data-step="4"] .field label{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 6px 4px}
+  .step[data-step="4"] .field input{background:var(--soft);border:1.5px solid transparent;border-radius:12px;min-height:56px;padding:14px 16px}
+  .step[data-step="4"] .field input:focus{outline:none;border-color:var(--purple);background:#fff}
+  .step[data-step="4"] .cta{border-radius:99px;margin-top:16px}
   .done{text-align:center;padding-top:30px}
   .done h2{font-size:30px;font-weight:800;margin-bottom:10px}
   .done p{color:var(--muted);font-size:16px;line-height:1.55;margin-bottom:24px}
@@ -123,19 +130,19 @@
   </section>
 
   <section class="step" data-step="4">
-    <h2 class="q">Last one. Where do we send your quote?</h2>
-    <p class="q-sub">Your answers go straight to Sebastian. Then you pick a time for a quick call.</p>
+    <h2 class="q">Almost done.</h2>
+    <p class="q-sub">Your answers go straight to Sebastian. Then you pick a time for your call.</p>
     <div class="field show">
-      <label for="custName">Your name</label>
-      <input id="custName" type="text" autocomplete="name" placeholder="Your name">
+      <label for="custName">Name</label>
+      <input id="custName" type="text" autocomplete="name" placeholder="Your full name">
     </div>
     <div class="field show">
       <label for="custPhone">Cell phone</label>
-      <input id="custPhone" type="tel" autocomplete="tel" placeholder="Best number to text">
+      <input id="custPhone" type="tel" autocomplete="tel" placeholder="(555) 123-4567">
     </div>
     <div class="field show">
       <label for="custBiz">Business name</label>
-      <input id="custBiz" type="text" autocomplete="organization" placeholder="Your business">
+      <input id="custBiz" type="text" autocomplete="organization" placeholder="Your business name">
     </div>
     <button type="button" class="cta" id="bookBtn">Book my call</button>
     <p class="err" id="errMsg"></p>
