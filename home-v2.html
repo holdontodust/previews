@@ -176,8 +176,8 @@
     [].slice.call(document.querySelectorAll('[data-q="'+group+'"]')).forEach(function(b){b.setAttribute("aria-pressed",b===btn?"true":"false")});
     if(group==="website"){
       document.getElementById("siteField").classList.toggle("show",val==="Yes");
-      document.getElementById("next1").disabled = val==="No";
-      if(val==="Yes"){document.getElementById("next1").disabled = !document.getElementById("siteUrl").value.trim()}
+      if(val==="No"){document.getElementById("next1").disabled=false}
+      else{document.getElementById("next1").disabled = !document.getElementById("siteUrl").value.trim()}
     }
     if(group==="seo"){document.getElementById("next2").disabled=false}
   }
