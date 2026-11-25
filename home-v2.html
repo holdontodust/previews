@@ -57,6 +57,15 @@
   .step[data-step="4"] .field input{background:var(--soft);border:1.5px solid transparent;border-radius:12px;min-height:56px;padding:14px 16px}
   .step[data-step="4"] .field input:focus{outline:none;border-color:var(--purple);background:#fff}
   .step[data-step="4"] .cta{border-radius:99px;margin-top:16px}
+  .site-details{display:none;border-top:1px solid var(--line);margin-top:26px;padding-top:22px}
+  .site-details.show{display:block}
+  .site-details h3{font-size:17px;font-weight:700;margin-bottom:4px}
+  .site-details .hint{font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.5}
+  .mini-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:6px}
+  .answer.mini{min-height:52px;font-size:15px;padding:10px 12px;justify-content:center;text-align:center}
+  .answer.mini .tick{display:none}
+  .ghost-btn{width:100%;min-height:52px;margin-top:12px;border:none;background:none;color:var(--muted);font-size:16px;font-weight:600;cursor:pointer;text-decoration:underline}
+  .book-ask{font-size:19px;font-weight:700;margin:22px 0 4px}
   .done{text-align:center;padding-top:30px}
   .done h2{font-size:30px;font-weight:800;margin-bottom:10px}
   .done p{color:var(--muted);font-size:16px;line-height:1.55;margin-bottom:24px}
@@ -78,7 +87,7 @@
 <main>
   <div class="hero">
     <h1 id="headline">A better website. Ready at launch speed.</h1>
-    <p>Websites and SEO for local businesses. Answer 4 quick questions, then book your call.</p>
+    <p>Websites and SEO for local businesses. Answer 4 quick questions and you're done.</p>
   </div>
 
   <section class="step active" data-step="1">
@@ -134,7 +143,7 @@
 
   <section class="step" data-step="4">
     <h2 class="q">Almost done.</h2>
-    <p class="q-sub">Your answers go straight to Sebastian. Then you pick a time for your call.</p>
+    <p class="q-sub">Your answers go straight to Sebastian.</p>
     <div class="field show">
       <label for="custName">Name</label>
       <input id="custName" type="text" autocomplete="name" placeholder="Your full name">
@@ -147,7 +156,23 @@
       <label for="custBiz">Business name</label>
       <input id="custBiz" type="text" autocomplete="organization" placeholder="Your business name">
     </div>
-    <button type="button" class="cta" id="bookBtn">Book my call</button>
+    <div class="site-details" id="siteDetails">
+      <h3>About your current website</h3>
+      <p class="hint">So we can get moving fast, no chasing basics later.</p>
+      <div class="field show">
+        <label for="siteRunner">Who built or runs it now?</label>
+        <input id="siteRunner" type="text" placeholder="Company or person, or 'I did it myself'">
+      </div>
+      <div class="field show">
+        <label>Do you have the logins for it?</label>
+        <div class="mini-grid">
+          <button type="button" class="answer mini" data-login="Yes" aria-pressed="false">Yes</button>
+          <button type="button" class="answer mini" data-login="No" aria-pressed="false">No</button>
+          <button type="button" class="answer mini" data-login="Not sure" aria-pressed="false">Not sure</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="cta" id="bookBtn">Send my answers</button>
     <p class="err" id="errMsg"></p>
     <button type="button" class="back" data-back="3">Back</button>
   </section>
@@ -155,8 +180,13 @@
   <section class="step" data-step="5">
     <div class="done">
       <h2>You're in.</h2>
-      <p>Your answers are on their way to Sebastian. If the scheduling page didn't open, tap below and pick your time.</p>
-      <button type="button" class="cta" id="calBtn">Pick my time</button>
+      <p>Your answers just went to Sebastian.</p>
+      <div id="bookAsk">
+        <p class="book-ask">Want to book a quick call?</p>
+        <button type="button" class="cta" id="calBtn">Book my call</button>
+        <button type="button" class="ghost-btn" id="noCallBtn">Not right now</button>
+      </div>
+      <p id="noCallMsg" style="display:none">No problem. Sebastian will reach out with next steps.</p>
     </div>
   </section>
 </main>
@@ -165,7 +195,7 @@
 </footer>
 <script>
 (function(){
-  var answers={website:"",siteUrl:"",seo:"",interests:[]};
+  var answers={website:"",siteUrl:"",seo:"",interests:[],siteRunner:"",siteLogins:""};
   var steps=[].slice.call(document.querySelectorAll(".step"));
   var bar=document.getElementById("bar"),qLabel=document.getElementById("qLabel"),progressWrap=document.getElementById("progressWrap");
   function show(n){
@@ -179,6 +209,7 @@
     [].slice.call(document.querySelectorAll('[data-q="'+group+'"]')).forEach(function(b){b.setAttribute("aria-pressed",b===btn?"true":"false")});
     if(group==="website"){
       document.getElementById("siteField").classList.toggle("show",val==="Yes");
+      document.getElementById("siteDetails").classList.toggle("show",val==="Yes");
       if(val==="No"){document.getElementById("next1").disabled=false}
       else{document.getElementById("next1").disabled = !document.getElementById("siteUrl").value.trim()}
     }
@@ -205,8 +236,19 @@
   [].slice.call(document.querySelectorAll("[data-back]")).forEach(function(b){
     b.addEventListener("click",function(){show(+b.dataset.back)});
   });
+  [].slice.call(document.querySelectorAll("[data-login]")).forEach(function(b){
+    b.addEventListener("click",function(){
+      answers.siteLogins=b.dataset.login;
+      [].slice.call(document.querySelectorAll("[data-login]")).forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+    });
+  });
+  document.getElementById("siteRunner").addEventListener("input",function(){answers.siteRunner=this.value.trim()});
   var CAL="https://calendly.com/sebastiankoulias/30min";
   document.getElementById("calBtn").addEventListener("click",function(){window.open(CAL,"_blank","noopener")});
+  document.getElementById("noCallBtn").addEventListener("click",function(){
+    document.getElementById("bookAsk").style.display="none";
+    document.getElementById("noCallMsg").style.display="";
+  });
   document.getElementById("bookBtn").addEventListener("click",function(){
     var btn=this,err=document.getElementById("errMsg");
     var name=document.getElementById("custName").value.trim();
@@ -214,11 +256,11 @@
     var biz=document.getElementById("custBiz").value.trim();
     if(!name||!phone){err.textContent="Add your name and cell phone so Sebastian can reach you.";return}
     err.textContent="";btn.disabled=true;btn.textContent="Sending...";
-    var data={"_subject":"New Click Launch answers"+(biz?" — "+biz:""),"_template":"table","Name":name,"Cell phone":phone,"Business name":biz||"Not provided","Already has a website":answers.website,"Website address":answers.siteUrl||"Not provided","Interested in SEO":answers.seo,"Interests":answers.interests.join(", ")};
+    var data={"_subject":"New Click Launch answers"+(biz?" — "+biz:""),"_template":"table","Name":name,"Cell phone":phone,"Business name":biz||"Not provided","Already has a website":answers.website,"Website address":answers.siteUrl||"Not provided","Who runs their website":answers.website==="Yes"?(answers.siteRunner||"Not answered"):"No website yet","Has website logins":answers.website==="Yes"?(answers.siteLogins||"Not answered"):"No website yet","Interested in SEO":answers.seo,"Services checked":answers.interests.join(", ")};
     fetch("https://formsubmit.co/ajax/sebastiankoulias@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)})
     .then(function(r){if(!r.ok)throw new Error("send failed");return r.json()})
-    .then(function(){show(5);window.open(CAL,"_blank","noopener")})
-    .catch(function(){btn.disabled=false;btn.textContent="Book my call";err.textContent="That didn't go through. Tap again, or call us and we'll take it by phone."});
+    .then(function(){show(5)})
+    .catch(function(){btn.disabled=false;btn.textContent="Send my answers";err.textContent="That didn't go through. Tap again, or call us and we'll take it by phone."});
   });
 })();
 </script>
