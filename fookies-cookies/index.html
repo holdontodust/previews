@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fookies Cookies | Baked This Morning. Gone By Tonight.</title>
 <meta name="description" content="Thick, small-batch cookies baked fresh every morning. Crisp edges, gooey centers, real ingredients.">
+<link rel="icon" type="image/jpeg" href="logo-round.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -60,7 +61,9 @@
   .stars{color:var(--red);font-size:18px;letter-spacing:3px}
   .hero-proof{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600}
   .hero-proof .who{color:var(--muted);font-weight:400}
-  .hero-img{border-radius:28px;overflow:hidden;box-shadow:0 30px 60px rgba(59,35,20,.22);transform:rotate(1.2deg)}
+  .hero-img{position:relative;border-radius:28px;box-shadow:0 30px 60px rgba(59,35,20,.22);transform:rotate(1.2deg)}
+  .hero-img>img{border-radius:28px}
+  .hero-sticker{position:absolute;left:-26px;bottom:-26px;width:132px;height:132px;object-fit:cover;border-radius:50%;border:4px solid #fff;box-shadow:0 14px 30px rgba(43,10,56,.35);transform:rotate(-8deg)}
   .hero-img img{width:100%;height:100%;object-fit:cover}
   .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
   .badge{background:var(--card);border:1.5px solid var(--line);border-radius:99px;padding:8px 16px;font-size:14px;font-weight:700}
@@ -206,6 +209,7 @@
     </div>
     <div class="hero-img reveal in">
       <img src="hero.jpg" alt="A tall stack of thick chocolate chip cookies with melted chocolate">
+      <img class="hero-sticker" src="logo-round.jpg" alt="Fookies Cookies round logo badge">
     </div>
   </div>
 </section>
