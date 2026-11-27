@@ -36,13 +36,18 @@
   .announce{background:var(--purple);color:#fff;text-align:center;font-size:13.5px;font-weight:700;letter-spacing:.04em;padding:10px 16px}
   .announce span{color:var(--gold)}
   header{background:var(--cream);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
-  .header-in{display:flex;flex-direction:column;align-items:center;padding:18px 0 14px;gap:12px}
-  .logo-img{height:104px;width:auto}
+  .header-in{display:flex;flex-direction:column;align-items:center;padding:18px 0 14px;gap:12px;transition:padding .25s ease}
+  .logo-img{height:104px;width:auto;transition:height .25s ease}
   footer .logo-img{height:88px}
   .header-cta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
   .header-cta a.navlink{font-weight:700;font-size:14.5px;text-decoration:none;color:var(--purple)}
   .header-cta a.navlink:hover{color:var(--pink)}
   .header-cta .btn{padding:11px 22px;font-size:14.5px}
+  header.scrolled .header-in{flex-direction:row;justify-content:space-between;padding:8px 0;gap:10px}
+  header.scrolled .logo-img{height:52px}
+  header.scrolled .header-cta{justify-content:flex-end;gap:16px}
+  header.scrolled .header-cta .btn{padding:9px 18px}
+  @media (prefers-reduced-motion: reduce){.header-in,.logo-img{transition:none}}
 
   .hero{padding:60px 0 80px;background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%)}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
@@ -338,6 +343,10 @@
     e.preventDefault();
     document.getElementById('formNote').style.display = 'block';
   });
+  var siteHeader = document.querySelector('header');
+  function onScroll(){ siteHeader.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 </script>
 </body>
 </html>
