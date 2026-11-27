@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fookies Cookies | Baked This Morning. Gone By Tonight.</title>
+<meta name="description" content="Thick, small-batch cookies baked fresh every morning. Crisp edges, gooey centers, real ingredients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF6EA;
+    --cream-2:#FDEBD3;
+    --red:#C1272D;
+    --red-dark:#9E1B22;
+    --choc:#3B2314;
+    --ink:#2A1A10;
+    --muted:#7A6552;
+    --line:#EAD9C2;
+    --card:#FFFDF8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;line-height:1.08;letter-spacing:-.01em}
+  .kicker{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .kicker.light{color:#FFD9A8}
+  section{padding:84px 0}
+  .sec-head{max-width:720px;margin:0 auto 48px;text-align:center}
+  .sec-head h2{font-size:clamp(32px,5.4vw,52px);font-weight:900;margin-bottom:14px}
+  .sec-head p{color:var(--muted);font-size:18px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:58px;padding:0 34px;border-radius:99px;border:none;background:var(--red);color:#fff;font-size:17px;font-weight:800;cursor:pointer;text-decoration:none;transition:background .15s ease,transform .15s ease}
+  .btn:hover{background:var(--red-dark);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:#fff}
+  .btn.cream{background:#fff;color:var(--red)}
+  .btn.cream:hover{background:var(--cream-2)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .announce{background:var(--choc);color:#FFE9C9;text-align:center;font-size:14px;font-weight:700;letter-spacing:.04em;padding:10px 16px}
+  header.site{position:sticky;top:0;z-index:50;background:rgba(255,246,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .logo{font-family:'Fraunces',serif;font-size:30px;font-weight:900;color:var(--ink);text-decoration:none;line-height:1}
+  .logo .dot{color:var(--red)}
+  .logo small{display:block;font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:.34em;color:var(--muted);margin-top:2px}
+  .header-cta{min-height:46px;padding:0 22px;font-size:15px}
+
+  .hero{padding:64px 0 84px;background:radial-gradient(1100px 500px at 85% -10%,var(--cream-2),transparent),var(--cream)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(44px,7vw,76px);font-weight:900;margin-bottom:20px}
+  .hero h1 em{font-style:normal;color:var(--red)}
+  .hero p.lede{font-size:20px;color:var(--muted);max-width:520px;margin-bottom:30px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .stars{color:var(--red);font-size:18px;letter-spacing:3px}
+  .hero-proof{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600}
+  .hero-proof .who{color:var(--muted);font-weight:400}
+  .hero-img{border-radius:28px;overflow:hidden;box-shadow:0 30px 60px rgba(59,35,20,.22);transform:rotate(1.2deg)}
+  .hero-img img{width:100%;height:100%;object-fit:cover}
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .badge{background:var(--card);border:1.5px solid var(--line);border-radius:99px;padding:8px 16px;font-size:14px;font-weight:700}
+
+  .versus{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .vs-table{max-width:860px;margin:0 auto;border:2px solid var(--ink);border-radius:20px;overflow:hidden}
+  .vs-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)}
+  .vs-row:first-child{border-top:none}
+  .vs-cell{padding:18px 20px;font-size:16px}
+  .vs-cell.label{font-weight:800;background:var(--cream)}
+  .vs-cell.them{color:var(--muted)}
+  .vs-cell.us{font-weight:700;background:#FDECEC}
+  .vs-head .vs-cell{font-family:'Fraunces',serif;font-size:19px;font-weight:900}
+  .vs-head .label{background:var(--cream)}
+  .vs-head .them{background:#EFE7DA;color:var(--muted)}
+  .vs-head .us{background:var(--red);color:#fff}
+  .mark{font-weight:900;margin-right:8px}
+  .mark.no{color:#B08968}
+  .mark.yes{color:var(--red)}
+
+  .story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+  .story h2{font-size:clamp(32px,5vw,48px);font-weight:900;margin-bottom:18px}
+  .story p{color:var(--muted);font-size:18px;margin-bottom:16px}
+  .story p strong{color:var(--ink)}
+  .story-img{border-radius:28px;overflow:hidden;box-shadow:0 24px 48px rgba(59,35,20,.18);transform:rotate(-1.2deg)}
+  .sig{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--red);margin-top:8px}
+
+  .tests{background:var(--choc);color:#FFF3DF}
+  .tests .sec-head p{color:#D9BE97}
+  .test-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .test-card{background:#4A2C17;border:1px solid #6B4423;border-radius:22px;padding:32px}
+  .test-card .num{font-family:'Fraunces',serif;font-size:15px;font-weight:900;letter-spacing:.24em;color:#FFB25E;text-transform:uppercase}
+  .test-card h3{font-size:28px;font-weight:900;margin:10px 0 12px}
+  .test-card p{color:#EBD3AC;font-size:16.5px}
+  .test-card.feature{grid-column:1 / -1;padding:0;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .test-card.feature .txt{padding:36px}
+  .test-card.feature img{width:100%;height:100%;object-fit:cover;min-height:280px}
+
+  .flavor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .flavor{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:26px 22px;text-align:center;transition:transform .18s ease,box-shadow .18s ease}
+  .flavor:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(59,35,20,.14)}
+  .cookie{width:104px;height:104px;border-radius:50%;margin:0 auto 18px;position:relative;box-shadow:inset 0 -8px 14px rgba(59,35,20,.25),0 8px 16px rgba(59,35,20,.18)}
+  .cookie::after{content:"";position:absolute;inset:0;border-radius:50%;background:
+    radial-gradient(circle 7px at 32% 30%,var(--choc) 98%,transparent),
+    radial-gradient(circle 5px at 62% 22%,var(--choc) 98%,transparent),
+    radial-gradient(circle 8px at 72% 55%,var(--choc) 98%,transparent),
+    radial-gradient(circle 5px at 45% 62%,var(--choc) 98%,transparent),
+    radial-gradient(circle 6px at 26% 68%,var(--choc) 98%,transparent),
+    radial-gradient(circle 5px at 58% 82%,var(--choc) 98%,transparent)}
+  .cookie.og{background:radial-gradient(circle at 35% 30%,#E8B06E,#C97F3D)}
+  .cookie.double{background:radial-gradient(circle at 35% 30%,#6B4226,#3B2314)}
+  .cookie.snicker{background:radial-gradient(circle at 35% 30%,#EFD3A0,#D9AE6A)}
+  .cookie.snicker::after{background:
+    radial-gradient(circle 4px at 32% 30%,#FFF6EA 98%,transparent),
+    radial-gradient(circle 4px at 62% 24%,#FFF6EA 98%,transparent),
+    radial-gradient(circle 4px at 70% 58%,#FFF6EA 98%,transparent),
+    radial-gradient(circle 4px at 44% 66%,#FFF6EA 98%,transparent),
+    radial-gradient(circle 4px at 28% 74%,#FFF6EA 98%,transparent)}
+  .cookie.stuffed{background:radial-gradient(circle at 35% 30%,#DFA55C,#B96F2E)}
+  .flavor h3{font-size:21px;font-weight:900;margin-bottom:8px}
+  .flavor p{color:var(--muted);font-size:15px;min-height:66px}
+  .flavor .price{font-family:'Fraunces',serif;font-size:22px;font-weight:900;color:var(--red);margin-top:10px}
+  .flavor .tag{display:inline-block;background:#FDECEC;color:var(--red);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:4px 12px;margin-bottom:14px}
+
+  .reviews{background:var(--cream-2)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .rev{background:var(--card);border-radius:20px;padding:28px;border:1.5px solid var(--line)}
+  .rev .stars{font-size:15px;margin-bottom:12px}
+  .rev p{font-size:16.5px;margin-bottom:14px}
+  .rev .name{font-weight:800;font-size:14px;color:var(--muted)}
+
+  .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+  .pack{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:34px 28px;text-align:center;display:flex;flex-direction:column}
+  .pack.pop{border-color:var(--red);box-shadow:0 22px 44px rgba(193,39,45,.16);position:relative}
+  .pack .pop-tag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:99px;white-space:nowrap}
+  .pack h3{font-size:24px;font-weight:900;margin-bottom:6px}
+  .pack .pack-price{font-family:'Fraunces',serif;font-size:44px;font-weight:900;color:var(--red);margin:10px 0 4px}
+  .pack .per{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+  .pack ul{list-style:none;text-align:left;margin:0 auto 26px;max-width:250px}
+  .pack li{padding:7px 0;font-size:15.5px;border-top:1px dashed var(--line)}
+  .pack li:first-child{border-top:none}
+  .pack .btn{margin-top:auto}
+
+  .faq{max-width:760px;margin:0 auto}
+  .faq-item{border:1.5px solid var(--line);border-radius:16px;background:var(--card);margin-bottom:12px;overflow:hidden}
+  .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;background:none;border:none;padding:20px 22px;font-size:17px;font-weight:700;color:var(--ink);cursor:pointer;text-align:left;font-family:'Inter',sans-serif}
+  .faq-q .chev{color:var(--red);font-weight:900;transition:transform .15s ease}
+  .faq-q[aria-expanded="true"] .chev{transform:rotate(180deg)}
+  .faq-a{padding:0 22px 20px;color:var(--muted);font-size:16px}
+
+  .final{background:var(--red);color:#fff;text-align:center}
+  .final h2{font-size:clamp(34px,6vw,58px);font-weight:900;margin-bottom:16px}
+  .final p{color:#FFD9D2;font-size:19px;max-width:560px;margin:0 auto 30px}
+  footer{padding:34px 0 44px;text-align:center;color:var(--muted);font-size:14px}
+  footer .logo{font-size:24px}
+  footer .logo small{letter-spacing:.3em}
+
+  @media (max-width:900px){
+    .hero-grid,.story-grid{grid-template-columns:1fr}
+    .flavor-grid{grid-template-columns:1fr 1fr}
+    .rev-grid,.offer-grid{grid-template-columns:1fr}
+    .test-grid{grid-template-columns:1fr}
+    .test-card.feature{grid-template-columns:1fr}
+    .vs-cell{padding:14px 12px;font-size:14.5px}
+    section{padding:60px 0}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">Baked fresh every morning. When they're gone, they're gone.</div>
+
+<header class="site">
+  <div class="wrap header-in">
+    <a class="logo" href="#">fookies<span class="dot">.</span><small>COOKIES</small></a>
+    <a class="btn header-cta" href="#offer">Order Cookies</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="kicker">Small-batch cookie bakery</span>
+      <h1>Baked this morning. <em>Gone by tonight.</em></h1>
+      <p class="lede">Thick, small-batch cookies with crisp edges and gooey centers, made with real butter and real chocolate. No freezer. No shelf life science project. Just cookies the way they should be.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#lineup">See the Lineup</a>
+        <a class="btn ghost" href="#offer">Order a Dozen</a>
+      </div>
+      <div class="hero-proof">
+        <span class="stars">★★★★★</span>
+        <span>"The last cookie is worth fighting over." <span class="who">, every household, probably</span></span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">Baked fresh daily</span>
+        <span class="badge">Real butter, real chocolate</span>
+        <span class="badge">Small batches only</span>
+      </div>
+    </div>
+    <div class="hero-img reveal in">
+      <img src="hero.jpg" alt="A tall stack of thick chocolate chip cookies with melted chocolate">
+    </div>
+  </div>
+</section>
+
+<section class="versus">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Head to head</span>
+      <h2>Store cookies vs. Fookies</h2>
+      <p>Check the package on a grocery store cookie. Then check ours. There is no package. It was dough this morning.</p>
+    </div>
+    <div class="vs-table reveal">
+      <div class="vs-row vs-head">
+        <div class="vs-cell label"></div>
+        <div class="vs-cell them">Grocery Store Cookies</div>
+        <div class="vs-cell us">Fookies</div>
+      </div>
+      <div class="vs-row">
+        <div class="vs-cell label">When was it baked?</div>
+        <div class="vs-cell them"><span class="mark no">✕</span>Weeks ago, in a factory</div>
+        <div class="vs-cell us"><span class="mark yes">✓</span>This morning, in small batches</div>
+      </div>
+      <div class="vs-row">
+        <div class="vs-cell label">What's inside</div>
+        <div class="vs-cell them"><span class="mark no">✕</span>Preservatives and shelf-life science</div>
+        <div class="vs-cell us"><span class="mark yes">✓</span>Real butter, real chocolate, real eggs</div>
+      </div>
+      <div class="vs-row">
+        <div class="vs-cell label">The middle</div>
+        <div class="vs-cell them"><span class="mark no">✕</span>Dry all the way through</div>
+        <div class="vs-cell us"><span class="mark yes">✓</span>Crisp edges, gooey center</div>
+      </div>
+      <div class="vs-row">
+        <div class="vs-cell label">Warm when you eat it?</div>
+        <div class="vs-cell them"><span class="mark no">✕</span>Never, not once</div>
+        <div class="vs-cell us"><span class="mark yes">✓</span>Warm from the oven, every day</div>
+      </div>
+      <div class="vs-row">
+        <div class="vs-cell label">Made by</div>
+        <div class="vs-cell them"><span class="mark no">✕</span>A production line</div>
+        <div class="vs-cell us"><span class="mark yes">✓</span>Actual bakers, actual ovens</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="story-img reveal">
+      <img src="gooey.jpg" alt="Hands pulling apart a warm cookie with melted chocolate stretching between the halves">
+    </div>
+    <div class="reveal">
+      <span class="kicker">Meet the baker</span>
+      <h2>It started with one oven and a strong opinion.</h2>
+      <p>Most cookies are built to survive a warehouse. <strong>Fookies are built to be eaten today.</strong> Every batch starts the night before, rests overnight so the flavor actually develops, and goes into the oven first thing in the morning.</p>
+      <p>We keep the batches small on purpose. When a batch sells out, it's gone, and we'd rather sell out than sell you a cookie that's been sitting around losing its soul.</p>
+      <p><strong>That's the whole business model: bake it fresh, bake it right, and stop apologizing for it.</strong></p>
+      <div class="sig">, The Fookies Baker</div>
+    </div>
+  </div>
+</section>
+
+<section class="tests">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker light">The tests</span>
+      <h2>We put our cookies through it</h2>
+      <p>Anybody can say "gooey." We'd rather show you.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card feature reveal">
+        <div class="txt">
+          <div class="num">Test 01</div>
+          <h3>The Gooey Test</h3>
+          <p>Pull a warm Fookie apart and the chocolate stretches with it. That's not a sauce, a filling, or a trick. That's what happens when a cookie is loaded with real chocolate and pulled out of the oven at the right minute instead of the safe one.</p>
+        </div>
+        <img src="gooey.jpg" alt="A warm cookie being pulled apart with melted chocolate stretching between the halves">
+      </div>
+      <div class="test-card reveal">
+        <div class="num">Test 02</div>
+        <h3>The Dunk Test</h3>
+        <p>Three seconds in cold milk, held together. Five seconds, still holding. A Fookie is built thick enough to dunk without disintegrating into cookie soup at the bottom of your glass.</p>
+      </div>
+      <div class="test-card reveal">
+        <div class="num">Test 03</div>
+        <h3>The Day-Two Test</h3>
+        <p>If one somehow survives the night, ten seconds in the microwave brings the center right back to warm and gooey. Day two, same cookie. Try that with a store cookie and you get a warm hockey puck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lineup">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">The lineup</span>
+      <h2>Four cookies. Zero filler.</h2>
+      <p>A short menu on purpose. Every cookie on it has earned its spot.</p>
+    </div>
+    <div class="flavor-grid">
+      <div class="flavor reveal">
+        <span class="tag">The original</span>
+        <div class="cookie og"></div>
+        <h3>The OG</h3>
+        <p>The classic chocolate chip, done properly. Brown butter, big chocolate, flaky salt on top.</p>
+        <div class="price">$4.50</div>
+      </div>
+      <div class="flavor reveal">
+        <span class="tag">For chocoholics</span>
+        <div class="cookie double"></div>
+        <h3>Double Chocolate</h3>
+        <p>Dark cocoa dough loaded with chocolate chunks. Rich enough to count as a meal. Almost.</p>
+        <div class="price">$4.75</div>
+      </div>
+      <div class="flavor reveal">
+        <span class="tag">Warm spice</span>
+        <div class="cookie snicker"></div>
+        <h3>Brown Butter Snickerdoodle</h3>
+        <p>Rolled in cinnamon sugar with a soft, chewy middle and crackly edges.</p>
+        <div class="price">$4.50</div>
+      </div>
+      <div class="flavor reveal">
+        <span class="tag">The heavyweight</span>
+        <div class="cookie stuffed"></div>
+        <h3>The Stuffed One</h3>
+        <p>Our OG dough wrapped around a molten chocolate-hazelnut center. Bring a napkin. Bring two.</p>
+        <div class="price">$5.50</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Word of mouth</span>
+      <h2>People keep talking about these cookies</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"I've had cookies from the big chains, the grocery store, all of it. Nothing touches these. The middle is actually gooey, not just underbaked."</p>
+        <div class="name">, First-time customer, now a regular</div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Bought a dozen for the office and they were gone before lunch. I hid two in my desk and I feel zero shame about it."</p>
+        <div class="name">, Office hero of the week</div>
+      </div>
+      <div class="rev reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The Stuffed One should be illegal. Warm it up for ten seconds and it's basically a chocolate lava cake you can hold."</p>
+        <div class="name">, Stuffed One enthusiast</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">The offer</span>
+      <h2>Pick your level of commitment</h2>
+      <p>Singles at the counter. Boxes for people who plan ahead, or know they won't share.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="pack reveal">
+        <h3>The Half Dozen</h3>
+        <div class="pack-price">$24</div>
+        <div class="per">6 cookies, mix and match</div>
+        <ul>
+          <li>Any flavors in the lineup</li>
+          <li>Baked the morning you pick up</li>
+          <li>Gift box included</li>
+        </ul>
+        <a class="btn ghost" href="#">Order a Half Dozen</a>
+      </div>
+      <div class="pack pop reveal">
+        <span class="pop-tag">Most popular</span>
+        <h3>The Full Dozen</h3>
+        <div class="pack-price">$42</div>
+        <div class="per">12 cookies, mix and match</div>
+        <ul>
+          <li>Any flavors in the lineup</li>
+          <li>Baked the morning you pick up</li>
+          <li>Gift box included</li>
+          <li>Free local delivery over $40</li>
+        </ul>
+        <a class="btn" href="#">Order a Dozen</a>
+      </div>
+      <div class="pack reveal">
+        <h3>The Cookie Club</h3>
+        <div class="pack-price">$38<span style="font-size:20px">/mo</span></div>
+        <div class="per">A dozen every month, automatically</div>
+        <ul>
+          <li>First taste of new flavors</li>
+          <li>Skip or cancel anytime</li>
+          <li>Members-only bakes</li>
+        </ul>
+        <a class="btn ghost" href="#">Join the Club</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Good questions</span>
+      <h2>Before you ask</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">How fresh is "fresh," really?<span class="chev">▾</span></button>
+        <div class="faq-a" hidden>Dough is made the night before and baked the morning you get your cookies. If a cookie was baked yesterday, it doesn't get sold as fresh. Simple as that.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">How long do they stay good?<span class="chev">▾</span></button>
+        <div class="faq-a" hidden>Best on day one, still great on day two with a ten-second warm-up. After that they freeze well for up to a month, if they ever make it that far.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">Can I order for an event or the office?<span class="chev">▾</span></button>
+        <div class="faq-a" hidden>Yes, and you should. Big orders just need a little lead time so we can plan the batches. Reach out and we'll build the box around your event.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">Do you ship?<span class="chev">▾</span></button>
+        <div class="faq-a" hidden>Local pickup and delivery come first, because fresh matters. Shipping is in the works, packed to protect the gooey center, and the Cookie Club hears about it first.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">What about allergies?<span class="chev">▾</span></button>
+        <div class="faq-a" hidden>Our kitchen works with wheat, eggs, dairy, and nuts, so we can't promise any cookie is allergen-free. Ask us about ingredients on any flavor and we'll walk you through exactly what's in it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap reveal">
+    <h2>Your new favorite cookie is warm right now.</h2>
+    <p>Batches come out of the oven every morning and sell out most days. Get your order in before someone else eats your dozen.</p>
+    <a class="btn cream" href="#offer">Order Cookies</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#">fookies<span class="dot">.</span><small>COOKIES</small></a>
+    <p style="margin-top:14px">Baked fresh daily. Eaten fresh hourly.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
+  document.querySelectorAll(".faq-q").forEach(function(b){
+    b.addEventListener("click",function(){
+      var item=b.parentElement,a=item.querySelector(".faq-a");
+      var open=b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded",open?"false":"true");
+      a.hidden=open;
+    });
+  });
+})();
+</script>
+</body>
+</html>
