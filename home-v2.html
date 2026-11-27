@@ -35,6 +35,11 @@
   .answer[aria-pressed="true"] .tick{background:var(--purple);border-color:var(--purple)}
   .answer.check .tick{border-radius:6px}
   .answer.check{font-size:17px;min-height:58px;padding:13px 16px}
+  .svc{display:grid;gap:6px}
+  .info-btn{justify-self:start;background:none;border:none;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;padding:2px 4px;text-decoration:underline}
+  .info-btn .chev{display:inline-block;text-decoration:none;transition:transform .15s ease}
+  .info-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+  .explain{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.55;color:var(--ink)}
   .field{margin-top:14px;display:none}
   .field.show{display:block}
   .field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
@@ -124,15 +129,51 @@
     <h2 class="q">What do you want handled?</h2>
     <p class="q-sub">Check everything you want. You can change your mind on the call.</p>
     <div class="answers" id="interestList">
-      <button type="button" class="answer check" data-interest="A new website" aria-pressed="false">A new website<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="Local SEO (get found on Google)" aria-pressed="false">Local SEO, get found on Google<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="Google presence push" aria-pressed="false">Google presence push<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="Instant lead texts" aria-pressed="false">Instant lead texts<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="Missed call text back" aria-pressed="false">Missed call text back<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="Custom review sender" aria-pressed="false">Custom review sender<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="Online booking" aria-pressed="false">Online booking<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="AI search setup" aria-pressed="false">AI search setup<span class="tick">✓</span></button>
-      <button type="button" class="answer check" data-interest="Social media management" aria-pressed="false">Social media management<span class="tick">✓</span></button>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="A new website" aria-pressed="false">A new website<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex1">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex1" hidden>A brand new website built for your business, made to look right on phones and turn visitors into calls and customers.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="Local SEO (get found on Google)" aria-pressed="false">Local SEO, get found on Google<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex2">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex2" hidden>When people near you search for what you do, your business shows up higher on Google and on the map, so the right people find you instead of your competitors.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="Google presence push" aria-pressed="false">Google presence push<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex3">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex3" hidden>We set up your Google business profile, the listing with your hours, reviews, and location on the map, and we stay on top of it every week, keeping it updated and active so it keeps pulling in calls.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="Instant lead texts" aria-pressed="false">Instant lead texts<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex4">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex4" hidden>The second someone fills out the form on your website, you get a text with their name and number. No lead sitting in an inbox going cold while a competitor answers first.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="Missed call text back" aria-pressed="false">Missed call text back<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex5">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex5" hidden>If a call comes in and you can’t pick up, the caller automatically gets a text from your business right away, so the job doesn’t go to the next company on their list.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="Custom review sender" aria-pressed="false">Custom review sender<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex6">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex6" hidden>After a job is done, your customer gets a text asking for a review, sent at the right moment and written for your business. More good reviews on Google without you having to remember to ask.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="Online booking" aria-pressed="false">Online booking<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex7">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex7" hidden>Customers can book an appointment right on your website, any time of day or night. It lands on your calendar, they get a confirmation, no phone tag.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="AI search setup" aria-pressed="false">AI search setup<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex8">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex8" hidden>People now ask tools like ChatGPT and Google’s AI who to hire. We set your website up so those tools can find your business and recommend it.</p>
+      </div>
+      <div class="svc">
+        <button type="button" class="answer check" data-interest="Social media management" aria-pressed="false">Social media management<span class="tick">✓</span></button>
+        <button type="button" class="info-btn" data-info aria-expanded="false" aria-controls="ex9">What’s this? <span class="chev">▾</span></button>
+        <p class="explain" id="ex9" hidden>We handle the posts on your business pages so they stay active and professional, without you spending your evenings doing it.</p>
+      </div>
       <button type="button" class="answer check" data-interest="Not sure, talk me through it" aria-pressed="false">Not sure, talk me through it<span class="tick">✓</span></button>
     </div>
     <div class="next-wrap">
@@ -228,6 +269,14 @@
       var v=b.dataset.interest,i=answers.interests.indexOf(v);
       if(on&&i>-1)answers.interests.splice(i,1);if(!on&&i<0)answers.interests.push(v);
       document.getElementById("next3").disabled=answers.interests.length===0;
+    });
+  });
+  [].slice.call(document.querySelectorAll("[data-info]")).forEach(function(b){
+    b.addEventListener("click",function(){
+      var p=document.getElementById(b.getAttribute("aria-controls"));
+      var open=b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded",open?"false":"true");
+      p.hidden=open;
     });
   });
   document.getElementById("next1").addEventListener("click",function(){show(2)});
