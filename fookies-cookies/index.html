@@ -62,8 +62,9 @@
   .flavors{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   @media(max-width:760px){.flavors{grid-template-columns:1fr}}
   .flavor{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 14px 32px rgba(59,10,50,.08)}
-  .flavor .photo{width:100%;height:300px;object-fit:cover}
-  @media(max-width:760px){.flavor .photo{height:240px}}
+  .flavor .photo-wrap{position:relative}
+  .flavor .photo{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .flavor .mini-pill{position:absolute;left:16px;bottom:16px;background:var(--purple);color:#fff;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border-radius:999px;box-shadow:0 8px 20px rgba(43,10,56,.35)}
   .flavor .body{padding:24px 26px 28px}
   .flavor h3{font-size:26px;margin-bottom:6px}
   .flavor p{color:var(--muted);font-size:15.5px;margin-bottom:18px}
@@ -170,11 +171,18 @@
     <div class="sec-head">
       <div class="kicker">The Flavors</div>
       <h2>Fookies Signature Cookies</h2>
-      <p>Four flavors, one cup at a time. Every flavor is $10, or $9 a cup with Subscribe &amp; Save, and minis are always Buy 3, Get 1 Free.</p>
+      <p>Four flavors, one cup at a time. Every Fookie is a two-bite mini, never a full-size cookie. Every flavor is $10, or $9 a cup with Subscribe &amp; Save, and minis are always Buy 3, Get 1 Free.</p>
+    </div>
+    <div class="mini-note" style="margin-top:0;margin-bottom:22px">
+      <img src="hand.jpg" alt="A single Fookies mini cookie held in a pink-gloved hand, showing its two-bite size">
+      <div>
+        <h3>Yes, they're really mini</h3>
+        <p>Every Fookie is a two-bite mini, baked fresh and scooped by the cup. Small cookies, big flavor, and dangerously easy to keep eating.</p>
+      </div>
     </div>
     <div class="flavors">
       <div class="flavor">
-        <img class="photo" src="real-choc.jpg" alt="A bin of real Fookies mini chocolate chip cookies">
+        <div class="photo-wrap"><img class="photo" src="real-choc.jpg" alt="A bin of real Fookies mini chocolate chip cookies"><span class="mini-pill">Two-bite mini</span></div>
         <div class="body">
           <span class="tag">The Original</span>
           <h3>Chocolate Chip</h3>
@@ -187,7 +195,7 @@
         </div>
       </div>
       <div class="flavor">
-        <img class="photo" src="real-oreo.jpg" alt="A bin of real Fookies F-Oreo black mini cookies with white chocolate chips">
+        <div class="photo-wrap"><img class="photo" src="real-oreo.jpg" alt="A bin of real Fookies F-Oreo black mini cookies with white chocolate chips"><span class="mini-pill">Two-bite mini</span></div>
         <div class="body">
           <span class="tag">Black Cocoa</span>
           <h3>F-Oreo</h3>
@@ -200,7 +208,7 @@
         </div>
       </div>
       <div class="flavor">
-        <img class="photo" src="real-cinni.jpg" alt="A bin of real Fookies Cinni-Mini cookies with chocolate chips and white chocolate chips">
+        <div class="photo-wrap"><img class="photo" src="real-cinni.jpg" alt="A bin of real Fookies Cinni-Mini cookies with chocolate chips and white chocolate chips"><span class="mini-pill">Two-bite mini</span></div>
         <div class="body">
           <span class="tag">Cinnamon + Two Chips</span>
           <h3>Cinni-Mini</h3>
@@ -213,7 +221,7 @@
         </div>
       </div>
       <div class="flavor">
-        <img class="photo" src="real-bday.jpg" alt="A bin of real Fookies Birthday Cake mini cookies with sprinkles and white chocolate chips">
+        <div class="photo-wrap"><img class="photo" src="real-bday.jpg" alt="A bin of real Fookies Birthday Cake mini cookies with sprinkles and white chocolate chips"><span class="mini-pill">Two-bite mini</span></div>
         <div class="body">
           <span class="tag">Sprinkle Party</span>
           <h3>Birthday Cake</h3>
@@ -224,13 +232,6 @@
             <span class="sub">or $9 with Subscribe &amp; Save</span>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="mini-note">
-      <img src="hand.jpg" alt="A single Fookies mini cookie held in a pink-gloved hand, showing its two-bite size">
-      <div>
-        <h3>Yes, they're really mini</h3>
-        <p>Every Fookie is a two-bite mini, baked fresh and scooped by the cup. Small cookies, big flavor, and dangerously easy to keep eating.</p>
       </div>
     </div>
   </div>
