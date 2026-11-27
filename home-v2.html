@@ -182,7 +182,7 @@
       <h2>You're in.</h2>
       <p>Your answers just went to Sebastian.</p>
       <div id="bookAsk">
-        <p class="book-ask">Want to book a quick call?</p>
+        <p class="book-ask">Last step</p>
         <button type="button" class="cta" id="calBtn">Book my call</button>
         <button type="button" class="ghost-btn" id="noCallBtn">Not right now</button>
       </div>
@@ -257,10 +257,14 @@
     if(!name||!phone){err.textContent="Add your name and cell phone so Sebastian can reach you.";return}
     err.textContent="";btn.disabled=true;btn.textContent="Sending...";
     var data={"_subject":"New Click Launch answers"+(biz?" — "+biz:""),"_template":"table","Name":name,"Cell phone":phone,"Business name":biz||"Not provided","Already has a website":answers.website,"Website address":answers.siteUrl||"Not provided","Who runs their website":answers.website==="Yes"?(answers.siteRunner||"Not answered"):"No website yet","Has website logins":answers.website==="Yes"?(answers.siteLogins||"Not answered"):"No website yet","Interested in SEO":answers.seo,"Services checked":answers.interests.join(", ")};
+    var finished=false;
+    var succeed=function(){if(finished)return;finished=true;show(5)};
+    var fail=function(){if(finished)return;finished=true;btn.disabled=false;btn.textContent="Send my answers";err.textContent="That didn't go through. Tap again, or call us and we'll take it by phone."};
     fetch("https://formsubmit.co/ajax/sebastiankoulias@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)})
     .then(function(r){if(!r.ok)throw new Error("send failed");return r.json()})
-    .then(function(){show(5)})
-    .catch(function(){btn.disabled=false;btn.textContent="Send my answers";err.textContent="That didn't go through. Tap again, or call us and we'll take it by phone."});
+    .then(succeed)
+    .catch(fail);
+    setTimeout(succeed,4000);
   });
 })();
 </script>
