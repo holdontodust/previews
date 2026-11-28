@@ -143,7 +143,7 @@
     <nav class="header-cta">
       <a class="tab" href="index.html">The Cookies</a>
       <a class="tab active" href="info.html">Why Fookies</a>
-      <a class="tab" href="#events">Book an Event</a>
+      <a class="tab" href="events.html">Book an Event</a>
       <a class="btn" href="https://fookiescookies.com">Order Now</a>
     </nav>
   </div>
@@ -288,31 +288,6 @@
   </div>
 </section>
 
-<section class="events" id="events">
-  <div class="wrap">
-    <div class="events-grid">
-      <div>
-        <img class="shot" src="cart.jpg" alt="A Fookies Cookies event bike cart lit up with LED aura lights at night">
-        <h2 style="margin-top:28px">Book an Event</h2>
-        <p><b style="color:var(--purple)">The night cart. LED aura lights. Impossible to miss.</b></p>
-        <p>Our cookie bike carts bring the case to you: parties, markets, concerts and anywhere else people gather hungry. LED aura lights for nighttime events and a one-of-a-kind timer game on every bike, free to play, and the line forms before we even park. Guaranteed smiles with every bite.</p>
-        <p>Tell us about your event and our event team will get back to you after a quick review.</p>
-      </div>
-      <form id="eventForm" action="#" method="post">
-        <label for="evName">Name</label>
-        <input id="evName" name="name" type="text" autocomplete="name">
-        <label for="evEmail">Email *</label>
-        <input id="evEmail" name="email" type="email" required autocomplete="email">
-        <label for="evPhone">Phone number</label>
-        <input id="evPhone" name="phone" type="tel" autocomplete="tel">
-        <label for="evComment">Comment</label>
-        <textarea id="evComment" name="comment" rows="5" placeholder="Type of event, date and time, and your ideal budget"></textarea>
-        <button class="btn" type="submit">Send Event Request</button>
-        <p class="form-note" id="formNote">Preview only: on the live site, this form sends straight to the Fookies event team.</p>
-      </form>
-    </div>
-  </div>
-</section>
 
 <section id="faq">
   <div class="wrap">
@@ -343,7 +318,7 @@
       </details>
       <details>
         <summary>Can I book Fookies for an event?</summary>
-        <p>Yes. Our bike carts do parties, markets and concerts, with LED aura lights for nighttime events and a free timer game on every bike. Use the Book an Event form above and our event team will get back to you.</p>
+        <p>Yes. Our bike carts do parties, markets and concerts, with LED aura lights for nighttime events and a free timer game on every bike. Send the form on the Book an Event tab and our event team will get back to you.</p>
       </details>
     </div>
   </div>
@@ -365,17 +340,13 @@
     <div class="foot-tabs">
       <a href="index.html">The Cookies</a>
       <a href="info.html">Why Fookies</a>
-      <a href="info.html#events">Book an Event</a>
+      <a href="events.html">Book an Event</a>
     </div>
     <p style="color:#B98FC9">Preview mockup. The live store runs on fookiescookies.com.</p>
   </div>
 </footer>
 
 <script>
-  document.getElementById('eventForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    document.getElementById('formNote').style.display = 'block';
-  });
   var siteHeader = document.querySelector('header');
   function onScroll(){ siteHeader.classList.toggle('scrolled', window.scrollY > 40); }
   window.addEventListener('scroll', onScroll, {passive:true});
