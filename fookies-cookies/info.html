@@ -131,6 +131,9 @@
   footer .foot-tabs{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
   footer .foot-tabs a{color:#fff;font-weight:800;text-decoration:none;border:1.5px solid var(--purple-2);padding:8px 18px;border-radius:999px;font-size:14.5px}
   footer .foot-tabs a:hover{border-color:var(--pink)}
+
+  .rain-cookie{position:fixed;top:-100px;border-radius:50%;pointer-events:none;z-index:300;box-shadow:0 10px 24px rgba(43,10,56,.25);animation:cookieFall linear forwards}
+  @keyframes cookieFall{0%{transform:translate(0,-100px) rotate(0deg)}50%{transform:translate(var(--sway,30px),55vh) rotate(190deg)}100%{transform:translate(0,112vh) rotate(380deg)}}
 </style>
 </head>
 <body>
@@ -351,6 +354,32 @@
   function onScroll(){ siteHeader.classList.toggle('scrolled', window.scrollY > 40); }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+</script>
+
+
+<script>
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var flavors = ['bowl-choc.jpg','bowl-bday.jpg','bowl-cinni.jpg','bowl-oreo.jpg'];
+    document.addEventListener('click', function(){
+      if (document.querySelectorAll('.rain-cookie').length > 40) return;
+      for (var i = 0; i < 14; i++){
+        var img = document.createElement('img');
+        img.src = flavors[Math.floor(Math.random()*flavors.length)];
+        img.className = 'rain-cookie';
+        img.alt = '';
+        var size = 46 + Math.random()*38;
+        img.style.width = size + 'px';
+        img.style.height = size + 'px';
+        img.style.left = (Math.random()*94) + 'vw';
+        img.style.setProperty('--sway', (Math.random()*90 - 45) + 'px');
+        img.style.animationDuration = (2.4 + Math.random()*1.4) + 's';
+        img.style.animationDelay = (Math.random()*0.35) + 's';
+        img.addEventListener('animationend', function(){ this.remove(); });
+        document.body.appendChild(img);
+      }
+    });
+  })();
 </script>
 
 </body>
