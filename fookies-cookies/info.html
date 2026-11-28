@@ -16,7 +16,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;font-size:17px}
+  body{font-family:'Nunito',sans-serif;color:var(--ink);background:transparent;line-height:1.55;font-size:17px}
   img{max-width:100%;display:block}
   .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
   h1,h2,h3{font-family:'Fraunces',serif;line-height:1.12;color:var(--purple)}
@@ -65,7 +65,7 @@
   .vs-head .us{color:var(--gold)}
   .vs-head .us::before,.vs-head .them::before{content:""}
   @media(max-width:700px){.vs-row{grid-template-columns:1fr}.vs-row>div{padding:10px 18px}.vs-row .feat{padding-top:16px}.vs-row .us{padding-bottom:16px}.vs-head{display:none}}
-  .story{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .story{background:rgba(255,255,255,.88);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .story .wrap{display:grid;grid-template-columns:200px 1fr;gap:44px;align-items:center;max-width:920px}
   @media(max-width:760px){.story .wrap{grid-template-columns:1fr;text-align:center}}
   .story .badge-logo{width:200px;height:200px;border-radius:50%;object-fit:cover;margin:0 auto;box-shadow:0 16px 34px rgba(43,10,56,.18)}
@@ -134,6 +134,8 @@
 
   .rain-cookie{position:fixed;top:-100px;border-radius:50%;pointer-events:none;z-index:300;box-shadow:0 10px 24px rgba(43,10,56,.25);animation:cookieFall linear forwards}
   @keyframes cookieFall{0%{transform:translate(0,-100px) rotate(0deg)}50%{transform:translate(var(--sway,30px),55vh) rotate(190deg)}100%{transform:translate(0,112vh) rotate(380deg)}}
+
+  body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)),url('swirl.jpg') center/cover no-repeat}
 </style>
 </head>
 <body>

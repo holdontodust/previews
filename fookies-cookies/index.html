@@ -16,7 +16,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Nunito',sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;font-size:17px}
+  body{font-family:'Nunito',sans-serif;color:var(--ink);background:transparent;line-height:1.55;font-size:17px}
   img{max-width:100%;display:block}
   .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
   h1,h2,h3{font-family:'Fraunces',serif;line-height:1.12;color:var(--purple)}
@@ -41,7 +41,7 @@
   header.scrolled .header-cta .btn{padding:9px 18px}
   @media (prefers-reduced-motion: reduce){.header-in,.logo-img,.tab{transition:none}}
   section{padding:70px 0}
-  .hero{padding:46px 0 40px;text-align:center;background:radial-gradient(1000px 500px at 50% -80px,#FBD3E6 0%,var(--cream) 62%)}
+  .hero{padding:46px 0 40px;text-align:center;background:radial-gradient(1000px 500px at 50% -80px,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 62%)}
   .hero h1{font-size:clamp(40px,6vw,60px);font-weight:900;max-width:800px;margin:0 auto}
   .hero h1 em{font-style:normal;color:var(--pink)}
   .hero .lede{font-size:19px;color:var(--muted);max-width:600px;margin:16px auto 0}
@@ -100,6 +100,8 @@
 
   .rain-cookie{position:fixed;top:-100px;border-radius:50%;pointer-events:none;z-index:300;box-shadow:0 10px 24px rgba(43,10,56,.25);animation:cookieFall linear forwards}
   @keyframes cookieFall{0%{transform:translate(0,-100px) rotate(0deg)}50%{transform:translate(var(--sway,30px),55vh) rotate(190deg)}100%{transform:translate(0,112vh) rotate(380deg)}}
+
+  body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)),url('swirl.jpg') center/cover no-repeat}
 </style>
 </head>
 <body>
