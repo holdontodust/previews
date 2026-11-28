@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Fookies — Fookies Cookies</title>
+<meta name="description" content="Why Fookies: the head-to-head against regular cookies, the tests, the one-for-one promise, event booking and answers. Gourmet mini cookies, all natural.">
+<link rel="icon" type="image/jpeg" href="logo-round.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#E8268F; --pink-dark:#C2146F; --purple:#2B0A38; --purple-2:#45145C;
+    --cream:#FFF7EF; --ink:#33123F; --muted:#7A6484; --line:#F3D9E4; --gold:#FFC53D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;font-size:17px}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.12;color:var(--purple)}
+  .kicker{font-weight:900;letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:var(--pink);margin-bottom:14px}
+  .btn{display:inline-block;background:var(--pink);color:#fff;font-weight:900;text-decoration:none;padding:15px 32px;border-radius:999px;font-size:16.5px;box-shadow:0 10px 24px rgba(232,38,143,.35);transition:transform .15s ease,background .15s ease;border:none;cursor:pointer}
+  .btn:hover{background:var(--pink-dark);transform:translateY(-2px)}
+  .bar{background:var(--purple);color:#fff;text-align:center;font-weight:800;font-size:14.5px;padding:10px 16px}
+  .bar b{color:var(--gold)}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,247,239,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;flex-direction:column;align-items:center;padding:18px 0 14px;gap:12px;transition:padding .25s ease}
+  .logo-img{height:104px;width:auto;transition:height .25s ease}
+  footer .logo-img{height:88px}
+  .header-cta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center}
+  .tab{font-weight:900;font-size:14.5px;text-decoration:none;color:var(--purple);padding:10px 20px;border-radius:999px;border:2px solid var(--line);background:#fff;transition:padding .25s ease}
+  .tab:hover{border-color:var(--pink)}
+  .tab.active{background:var(--pink);border-color:var(--pink);color:#fff}
+  .header-cta .btn{padding:11px 22px;font-size:14.5px}
+  header.scrolled .header-in{flex-direction:row;justify-content:space-between;padding:8px 0;gap:10px}
+  header.scrolled .logo-img{height:52px}
+  header.scrolled .header-cta{justify-content:flex-end;gap:8px}
+  header.scrolled .tab{padding:7px 14px}
+  header.scrolled .header-cta .btn{padding:9px 18px}
+  @media (prefers-reduced-motion: reduce){.header-in,.logo-img,.tab{transition:none}}
+  section{padding:76px 0}
+  .page-hero{padding:52px 0 10px;text-align:center}
+  .page-hero h1{font-size:clamp(38px,5.6vw,56px);font-weight:900;max-width:780px;margin:0 auto}
+  .page-hero h1 em{font-style:normal;color:var(--pink)}
+  .page-hero p{font-size:19px;color:var(--muted);max-width:600px;margin:16px auto 0}
+  .page-hero .shot{max-width:880px;margin:38px auto 0}
+  .page-hero .shot img{width:100%;border-radius:26px;box-shadow:0 30px 60px rgba(43,10,56,.22)}
+  .sec-head{max-width:720px;margin:0 auto 44px;text-align:center}
+  .sec-head h2{font-size:clamp(32px,4.6vw,46px);font-weight:900}
+  .sec-head p{color:var(--muted);margin-top:12px;font-size:18px}
+  .vs{max-width:880px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 20px 44px rgba(43,10,56,.08)}
+  .vs-row{display:grid;grid-template-columns:1fr 1.2fr 1.2fr;border-top:1px solid var(--line)}
+  .vs-row:first-child{border-top:none}
+  .vs-row>div{padding:16px 20px;font-size:16px}
+  .vs-row .feat{font-weight:900;color:var(--purple);background:#FFF2F8}
+  .vs-row .them{color:var(--muted)}
+  .vs-row .us{font-weight:800;color:var(--purple)}
+  .vs-row .us::before{content:"✓ ";color:var(--pink);font-weight:900}
+  .vs-row .them::before{content:"✕ ";color:#C9A0B4;font-weight:900}
+  .vs-head{background:var(--purple)}
+  .vs-head>div{color:#fff;font-family:'Fraunces',serif;font-weight:900;font-size:19px;background:transparent}
+  .vs-head .feat{background:var(--purple-2);color:#fff}
+  .vs-head .us{color:var(--gold)}
+  .vs-head .us::before,.vs-head .them::before{content:""}
+  @media(max-width:700px){.vs-row{grid-template-columns:1fr}.vs-row>div{padding:10px 18px}.vs-row .feat{padding-top:16px}.vs-row .us{padding-bottom:16px}.vs-head{display:none}}
+  .story{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .story .wrap{display:grid;grid-template-columns:200px 1fr;gap:44px;align-items:center;max-width:920px}
+  @media(max-width:760px){.story .wrap{grid-template-columns:1fr;text-align:center}}
+  .story .badge-logo{width:200px;height:200px;border-radius:50%;object-fit:cover;margin:0 auto;box-shadow:0 16px 34px rgba(43,10,56,.18)}
+  .story h2{font-size:clamp(30px,4.2vw,42px);font-weight:900;margin-bottom:16px}
+  .story p{color:var(--muted);font-size:18px;margin-bottom:14px}
+  .story p b{color:var(--purple)}
+  .test{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;max-width:1020px;margin:0 auto 64px}
+  .test:last-child{margin-bottom:0}
+  .test.flip .test-media{order:2}
+  @media(max-width:820px){.test{grid-template-columns:1fr}.test.flip .test-media{order:0}}
+  .test-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px;box-shadow:0 22px 44px rgba(43,10,56,.16)}
+  .test h3{font-size:15px;font-family:'Nunito',sans-serif;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
+  .test .claim{font-family:'Fraunces',serif;font-size:clamp(28px,3.8vw,38px);font-weight:900;color:var(--purple);line-height:1.15;margin-bottom:14px}
+  .test p{color:var(--muted);font-size:17.5px;margin-bottom:16px}
+  .test .benefit{display:inline-block;background:#FFF2F8;border:1.5px solid var(--line);color:var(--purple);font-weight:900;padding:9px 18px;border-radius:999px;font-size:15px}
+  .test .benefit::before{content:"✓ ";color:var(--pink)}
+  .banner{background:var(--purple);color:#fff;text-align:center}
+  .banner h2{color:#fff;font-size:clamp(34px,5.4vw,54px);font-weight:900;max-width:820px;margin:0 auto}
+  .banner h2 em{font-style:normal;color:var(--gold)}
+  .banner p{color:#E9CFF2;font-size:19px;margin:16px auto 0;max-width:640px}
+  .details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:920px;margin:0 auto}
+  @media(max-width:760px){.details-grid{grid-template-columns:repeat(2,1fr)}}
+  .detail{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 20px;text-align:center;font-weight:900;color:var(--purple);font-size:17px}
+  .detail .tick{display:block;color:var(--pink);font-size:22px;margin-bottom:8px}
+  .result{text-align:center;font-family:'Fraunces',serif;font-size:clamp(24px,3.4vw,32px);font-weight:900;color:var(--purple);margin:40px auto 0;max-width:640px}
+  .result em{font-style:normal;color:var(--pink)}
+  .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1020px;margin:0 auto}
+  @media(max-width:820px){.offers{grid-template-columns:1fr}}
+  .offer{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 26px}
+  .offer.hot{background:var(--purple);border-color:var(--purple)}
+  .offer .tag{font-size:12.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+  .offer h3{font-size:24px;font-weight:900;margin:8px 0 6px;font-family:'Fraunces',serif;color:var(--purple)}
+  .offer.hot h3{color:#fff}
+  .offer .amount{font-family:'Fraunces',serif;font-size:34px;font-weight:900;color:var(--purple)}
+  .offer.hot .amount{color:var(--gold)}
+  .offer ul{list-style:none;margin-top:14px}
+  .offer li{padding:7px 0;font-weight:700;font-size:15.5px;color:var(--muted);border-top:1px solid var(--line)}
+  .offer.hot li{color:#E9CFF2;border-top-color:var(--purple-2)}
+  .offer li::before{content:"✓ ";color:var(--pink);font-weight:900}
+  .events{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .events-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;max-width:1020px;margin:0 auto}
+  @media(max-width:820px){.events-grid{grid-template-columns:1fr}}
+  .events img.shot{width:100%;border-radius:24px;box-shadow:0 22px 44px rgba(43,10,56,.16)}
+  .events h2{font-size:clamp(30px,4.2vw,42px);font-weight:900;margin-bottom:14px}
+  .events p{color:var(--muted);font-size:17.5px;margin-bottom:14px}
+  form label{display:block;font-weight:800;font-size:14.5px;color:var(--purple);margin:14px 0 6px}
+  form input,form textarea{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:14px;font-family:inherit;font-size:16px;background:var(--cream);color:var(--ink)}
+  form input:focus,form textarea:focus{outline:2px solid var(--pink);border-color:transparent}
+  form .btn{margin-top:20px;width:100%}
+  .form-note{display:none;background:#FFF2F8;border:1.5px solid var(--pink);color:var(--purple);font-weight:800;border-radius:14px;padding:14px 18px;margin-top:16px;font-size:15px}
+  .faq{max-width:820px;margin:0 auto}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin-bottom:12px}
+  .faq summary{font-weight:900;color:var(--purple);font-size:17.5px;cursor:pointer}
+  .faq details p{color:var(--muted);margin-top:10px;font-size:16.5px}
+  .final{background:var(--pink);text-align:center}
+  .final h2{color:#fff;font-size:clamp(34px,5.4vw,54px);font-weight:900}
+  .final p{color:#FFD9EC;font-size:19px;margin:14px auto 28px;max-width:560px}
+  .final .btn{background:#fff;color:var(--pink-dark);box-shadow:0 12px 26px rgba(43,10,56,.25)}
+  footer{background:var(--purple);color:#E9CFF2;padding:56px 0 40px;text-align:center}
+  footer .logo-img{margin:0 auto 18px}
+  footer p{font-size:15px;margin-top:8px}
+  footer .tagline{font-family:'Fraunces',serif;font-size:20px;color:#fff;font-weight:700}
+  footer .foot-tabs{margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  footer .foot-tabs a{color:#fff;font-weight:800;text-decoration:none;border:1.5px solid var(--purple-2);padding:8px 18px;border-radius:999px;font-size:14.5px}
+  footer .foot-tabs a:hover{border-color:var(--pink)}
+</style>
+</head>
+<body>
+
+<div class="bar">Buy 3, Get 1 Free on all minis &nbsp;·&nbsp; <b>Fook that's a good cookie.</b></div>
+
+<header>
+  <div class="wrap header-in">
+    <a href="index.html" aria-label="Fookies Cookies home"><img class="logo-img" src="logo.png?v=2" alt="Fookies Cookies logo"></a>
+    <nav class="header-cta">
+      <a class="tab" href="index.html">The Cookies</a>
+      <a class="tab active" href="info.html">Why Fookies</a>
+      <a class="tab" href="#events">Book an Event</a>
+      <a class="btn" href="https://fookiescookies.com">Order Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker">Why Fookies</p>
+    <h1>Not just cookies. <em>Better</em> cookies.</h1>
+    <p>The head-to-head, the tests, the one-for-one promise. Everything behind the four flavors, right here.</p>
+    <div class="shot"><img src="case.jpg" alt="The Fookies Cookies display case with all four flavors of mini cookies and their pink packaging"></div>
+  </div>
+</section>
+
+<section id="versus">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Head to Head</p>
+      <h2>Store-bought cookies vs. Fookies</h2>
+      <p>Check the label. It's all artificial. Different brand, same shortcuts.</p>
+    </div>
+    <div class="vs">
+      <div class="vs-row vs-head"><div class="feat"></div><div class="them">Regular Cookies</div><div class="us">Fookies</div></div>
+      <div class="vs-row"><div class="feat">Ingredients</div><div class="them">Whatever's cheapest</div><div class="us">Grass fed butter, pasture raised eggs, unbleached flour</div></div>
+      <div class="vs-row"><div class="feat">Artificial Ingredients</div><div class="them">A label full of them</div><div class="us">None. Zero.</div></div>
+      <div class="vs-row"><div class="feat">Seed Oils</div><div class="them">Standard in almost every recipe</div><div class="us">None, ever</div></div>
+      <div class="vs-row"><div class="feat">Sugar</div><div class="them">Loaded</div><div class="us">Low natural sugar</div></div>
+      <div class="vs-row"><div class="feat">Size</div><div class="them">One full-size sugar bomb</div><div class="us">Two-bite minis, scooped by the cup</div></div>
+      <div class="vs-row"><div class="feat">Freshness</div><div class="them">Shelf-stable for months</div><div class="us">Baked fresh</div></div>
+      <div class="vs-row"><div class="feat">Giving Back</div><div class="them">Nothing</div><div class="us">One-for-one cookie donation</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <img class="badge-logo" src="logo-round.jpg" alt="Fookies Cookies round logo badge">
+    <div>
+      <p class="kicker">Our Vision for Impact</p>
+      <h2>Baked to make a difference.</h2>
+      <p>With every cookie purchased, we provide a cookie to someone in our community. <b>One for you, one for them.</b> It's that simple.</p>
+      <p>Good cookies should do good. Every cup that leaves our case puts a cookie in the hands of someone who could use a little sweetness, and that's baked into every batch we make.</p>
+      <p>Together, we bake a difference, one cookie at a time.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tests">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Put Them to the Test</p>
+      <h2>Three tests. Zero shortcuts.</h2>
+    </div>
+
+    <div class="test">
+      <div class="test-media"><img src="hand.jpg" alt="A single Fookies mini cookie held in a pink-gloved hand, showing its two-bite size"></div>
+      <div>
+        <h3>The Two-Bite Test</h3>
+        <p class="claim">Two bites. That's the whole cookie.</p>
+        <p>Every Fookie is a two-bite mini, never a full-size cookie. Small enough to try every flavor, big enough to taste what real ingredients do. Portion control you don't have to think about.</p>
+        <span class="benefit">Small cookies, big flavor</span>
+      </div>
+    </div>
+
+    <div class="test flip">
+      <div class="test-media"><img src="tray.jpg" alt="A full tray of Fookies mini cookies fresh out of the oven"></div>
+      <div>
+        <h3>The Fresh-Baked Test</h3>
+        <p class="claim">Out of the oven, into the case.</p>
+        <p>No warehouse, no months on a shelf. Fookies are baked fresh and scooped by the cup, the way cookies were meant to be sold. You can see the case, you can watch them work.</p>
+        <span class="benefit">Baked fresh, scooped by the cup</span>
+      </div>
+    </div>
+
+    <div class="test">
+      <div class="test-media"><img src="cart.jpg" alt="A Fookies Cookies event bike cart lit up with LED aura lights at night"></div>
+      <div>
+        <h3>The Night Cart Test</h3>
+        <p class="claim">LED aura lights. Impossible to miss.</p>
+        <p>Our cookie bike carts roll into parties, markets and concerts glowing. Every bike runs a one-of-a-kind timer game, free to play, and the line forms before we even park.</p>
+        <span class="benefit">Guaranteed smiles with every bite</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banner">
+  <div class="wrap">
+    <p class="kicker" style="color:var(--gold)">The World's Best Cookies</p>
+    <h2>Every cookie you buy puts a cookie in <em>someone else's</em> hands.</h2>
+    <p>Grass fed butter. Pasture raised eggs. Unbleached flour. And a one-for-one promise on every single cookie.</p>
+  </div>
+</section>
+
+<section id="details">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">The Details</p>
+      <h2>What we obsessed over</h2>
+      <p>Every ingredient questioned. No compromises.</p>
+    </div>
+    <div class="details-grid">
+      <div class="detail"><span class="tick">✓</span>Grass Fed Butter</div>
+      <div class="detail"><span class="tick">✓</span>Pasture Raised Eggs</div>
+      <div class="detail"><span class="tick">✓</span>Unbleached Flour</div>
+      <div class="detail"><span class="tick">✓</span>Low Natural Sugar</div>
+      <div class="detail"><span class="tick">✓</span>No Artificial Ingredients</div>
+      <div class="detail"><span class="tick">✓</span>No Seed Oils</div>
+    </div>
+    <p class="result">The result? <em>The best fooking cookies you will ever have.</em></p>
+  </div>
+</section>
+
+<section id="offers" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">The Offer</p>
+      <h2>Three ways to save</h2>
+    </div>
+    <div class="offers">
+      <div class="offer hot">
+        <span class="tag">Every Day</span>
+        <h3>Buy 3, Get 1 Free</h3>
+        <div class="amount">4 cups for 3</div>
+        <ul>
+          <li>On all mini cookies</li>
+          <li>Mix any flavors you want</li>
+          <li>No code, no catch</li>
+        </ul>
+      </div>
+      <div class="offer">
+        <span class="tag">Subscribe &amp; Save</span>
+        <h3>Never Run Out</h3>
+        <div class="amount">$9 <span style="font-size:18px;color:var(--muted)">/ cup</span></div>
+        <ul>
+          <li>Save 10% on every cup</li>
+          <li>Delivered automatically, monthly</li>
+          <li>Your flavors, on repeat</li>
+        </ul>
+      </div>
+      <div class="offer">
+        <span class="tag">Membership</span>
+        <h3>Gotta Have My Fookies</h3>
+        <div class="amount">$10 <span style="font-size:18px;color:var(--muted)">/ month</span></div>
+        <ul>
+          <li>For the real cookie people</li>
+          <li>Save big on the best fooking cookies</li>
+          <li>You will ever have. Their words.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="wrap">
+    <div class="events-grid">
+      <div>
+        <img class="shot" src="counter.jpg" alt="The Fookies Cookies counter with all four flavor bins and pink packaging">
+        <h2 style="margin-top:28px">Book an Event</h2>
+        <p>Our cookie bike carts bring the case to you: parties, markets, concerts and anywhere else people gather hungry. LED aura lights for nighttime events and a one-of-a-kind timer game on every bike, free to play.</p>
+        <p>Tell us about your event and our event team will get back to you after a quick review.</p>
+      </div>
+      <form id="eventForm" action="#" method="post">
+        <label for="evName">Name</label>
+        <input id="evName" name="name" type="text" autocomplete="name">
+        <label for="evEmail">Email *</label>
+        <input id="evEmail" name="email" type="email" required autocomplete="email">
+        <label for="evPhone">Phone number</label>
+        <input id="evPhone" name="phone" type="tel" autocomplete="tel">
+        <label for="evComment">Comment</label>
+        <textarea id="evComment" name="comment" rows="5" placeholder="Type of event, date and time, and your ideal budget"></textarea>
+        <button class="btn" type="submit">Send Event Request</button>
+        <p class="form-note" id="formNote">Preview only: on the live site, this form sends straight to the Fookies event team.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Frequently Asked Questions</p>
+      <h2>Ask us anything</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Are the cookies really mini?</summary>
+        <p>Really. Every Fookie is a two-bite mini cookie, never full-size. They're baked fresh and scooped by the cup, so you can try all four flavors in one sitting.</p>
+      </details>
+      <details>
+        <summary>How does Subscribe &amp; Save work?</summary>
+        <p>Pick Subscribe &amp; Save on the store and your cup drops from $10 to $9. Your cookies are delivered automatically every month, so your flavor is always in the house.</p>
+      </details>
+      <details>
+        <summary>What is Gotta Have My Fookies?</summary>
+        <p>It's our membership, $10 a month, for people who take their cookies seriously. Members save big on the best fooking cookies you will ever have.</p>
+      </details>
+      <details>
+        <summary>What ingredients do you use?</summary>
+        <p>Grass fed butter, pasture raised eggs and unbleached flour, with low natural sugar. No artificial ingredients and no seed oils, in any flavor, ever.</p>
+      </details>
+      <details>
+        <summary>Do you really donate a cookie for every one sold?</summary>
+        <p>Yes. With every cookie purchased, we provide a cookie to someone in our community. That's our Vision for Impact, and it comes with every cup.</p>
+      </details>
+      <details>
+        <summary>Can I book Fookies for an event?</summary>
+        <p>Yes. Our bike carts do parties, markets and concerts, with LED aura lights for nighttime events and a free timer game on every bike. Use the Book an Event form above and our event team will get back to you.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Fook that's a good cookie.</h2>
+    <p>Four flavors. Two bites each. One given away for every one you eat.</p>
+    <a class="btn" href="index.html">See the Cookies</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="logo-img" src="logo.png?v=2" alt="Fookies Cookies logo">
+    <p class="tagline">Fook that's a good cookie.</p>
+    <p>Gourmet mini cookies · Buy 3, Get 1 Free · One-for-one, always</p>
+    <div class="foot-tabs">
+      <a href="index.html">The Cookies</a>
+      <a href="info.html">Why Fookies</a>
+      <a href="info.html#events">Book an Event</a>
+    </div>
+    <p style="color:#B98FC9">Preview mockup. The live store runs on fookiescookies.com.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('eventForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formNote').style.display = 'block';
+  });
+  var siteHeader = document.querySelector('header');
+  function onScroll(){ siteHeader.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+</script>
+
+</body>
+</html>
